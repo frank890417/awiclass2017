@@ -16,7 +16,7 @@ ul.list-group.nav_proj
   //- li(@click='sw(\"to_explain_hand_page\")')  新增作品方式
   //- button.fbshare_btn(@click='sw(\"share_course\")') （๑ • ‿ • ๑ ）分享課程
 
-  chat_panel
+  chat_panel.hidden-xs
   br
 
 
