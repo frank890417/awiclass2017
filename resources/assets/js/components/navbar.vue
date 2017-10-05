@@ -19,10 +19,18 @@ nav.navbar.navbar-default.navbar-fixed-top
         li
           router-link(to='/proj/2') 作品-特效入門
         li
-          a(href="https://hahow.in/cr/monoame-webdesign1" ,target="_blank")  前往課程頁面
+          a(href="https://hahow.in/cr/monoame-webdesign1",
+           @click="$ga.event('link', 'click', '前往課程-程式')" ,target="_blank") 程式課程
         li
-          a(href="https://www.facebook.com/groups/600360513469667/",target="_blank")  前往FB社團
+          a(href="https://hahow.in/cr/monoame-webdesign2",
+           @click="$ga.event('link', 'click', '前往課程-特效')" ,target="_blank") 特效課程
         li
+          a(href="https://www.facebook.com/groups/600360513469667/",
+           @click="$ga.event('link', 'click', '前往fb社團')", target="_blank")  前往FB社團
+        li
+          a(href="http://monoame.com",
+           @click="$ga.event('link', 'click', '墨雨設計')", target="_blank")  墨雨設計
+        //li
           a(href="https://hahow.in/cr/monoame-webdesign1",target="_blank")  新增作品方式
         
 
