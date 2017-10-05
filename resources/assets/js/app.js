@@ -19,6 +19,14 @@ import router from './router'
 import store from './store'
 import App from './components/App.vue'
 
+import VueAnalytics from 'vue-analytics'
+
+if (document.domain!="awiclass2017.dev"){
+  Vue.use(VueAnalytics, {
+    id: 'UA-52977512-11',
+    router
+  })
+}
 const app = new Vue({
     el: '#app',
     router,
