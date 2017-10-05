@@ -14,11 +14,8 @@ ul.list-group.nav_proj
   //- li(@click='sw(\"proj4\")', :class='[page==\"proj4\"?\"active\":\"\"]') Project.4 代辦清單 ({{pjnum[4]}}件)
   //- li(@click='sw(\"hahowdatas\")', :class='[page==\"hahowdatas\"?\"active\":\"\"]')  Hahow單元資訊
   //- li(@click='sw(\"to_explain_hand_page\")')  新增作品方式
-
-  br
   //- button.fbshare_btn(@click='sw(\"share_course\")') （๑ • ‿ • ๑ ）分享課程
-  br
-  br
+
   chat_panel
   br
 
