@@ -13,7 +13,7 @@ div.panel_proj
             | {{filter==''?('共有'+posts.length+'項作品'):('共有'+filtered_post.length+'項作品搜尋結果')}}
         .col-sm-3
           input.form-control(placeholder='輸入過濾名字/內文', v-model='filter')
-        .col-sm-3.btn-group.pull-right
+        .col-sm-3.btn-group.pull-right.hidden-xs
           button.btn.btn-default(@click="d_size='small'", :class="{'btn-primary':d_size=='small' }")
             | 小呈現
           button.btn.btn-default(@click="d_size='big'", :class="{'btn-primary':d_size=='big' }")

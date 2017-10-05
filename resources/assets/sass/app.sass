@@ -8,6 +8,8 @@
 // Bootstrap
 @import "node_modules/bootstrap-sass/assets/stylesheets/bootstrap"
 
+
+@import "common"
 *
   color: #333
   font-family: 微軟正黑體
@@ -52,7 +54,7 @@ h1, h2, h3, h4, h5, h6
   vertical-align: top
   min-height: 300px
   border-radius: 5px
-  width: 100%
+  // width: 100%
   margin: 5px
   margin-bottom: 15px
   transition: 0.5s
@@ -99,7 +101,7 @@ nav
       left: 50%
       height: 3px
       bottom: 6px
-      background-color: #333
+      background-color: #3097D1
       position: absolute
       transition: 0.4s
     &.disable_current
@@ -110,6 +112,9 @@ nav
     position: relative
     &:after
       width: 80%
+  +range_width(0px,768px)
+    .router-link-exact-active:after
+      display: none
 
 //ul
   margin: 0
@@ -175,3 +180,9 @@ h3 label
   color: white
   border: none
   padding: 5px 10px
+
+.nav_follow
+  margin-top: 70px
+
+.panel_proj
+  padding-top: 70px

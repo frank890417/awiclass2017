@@ -1,0 +1,28 @@
+
+*
+  font-family: 'Noto Sans TC',Roboto Slab,Hoefler Text,'微軟正黑體',Songti TC,serif
+  
+=flex_center
+  display: flex
+  justify-content: center
+  align-items: center
+//mixins
+@mixin paragraph_size_leading($fz,$lh)
+  font-size: $fz
+  line-height: $lh
+
+@mixin range_width($min: 0,$max: $min)
+  @if ($max==$min)
+    @media screen and (min-width: $min)
+      @content
+  @else
+    @media screen and (min-width: $min) and (max-width: $max)
+      @content
+
+@mixin range_height($min: 0,$max: $min)
+  @if ($max==$min)
+    @media screen and (min-height: $min)
+      @content
+  @else
+    @media screen and (min-height: $min) and (max-height: $max)
+      @content

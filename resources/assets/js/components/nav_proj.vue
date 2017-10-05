@@ -40,8 +40,8 @@ export default {
   },
   mounted(){
      $(window).scroll(function(){
-        var nowy=$(window).scrollTop()
-        $(".nav_proj").css("margin-top",nowy+"px")
+        var nowy=$(window).scrollTop()+70
+        $(".nav_follow").css("margin-top",nowy+"px")
     });
   },
   computed:{

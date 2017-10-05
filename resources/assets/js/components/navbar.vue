@@ -29,6 +29,38 @@ nav.navbar.navbar-default.navbar-fixed-top
 </template>
 
 <script>
+import $ from 'jquery'
 export default {
+  mounted(){
+    if ($('.dropdown').length>0){
+      console.log("add event collapse")
+      // if ($(window).width()>700){
+      //   $('.dropdown').hover(function(){
+      //     $(this).addClass('open');
+      //   },function(){
+      //     $(this).removeClass('open');
+      //   });
+      // }
+      $(".dropdown").click(function(){
+        $(this).toggleClass("open");
+      });
+      $(".dropdown-menu li").click(function(){
+        // $(this).parent.toggleClass("open");
+        $("#app-navbar-collapse").removeClass("in");
+      });
+
+      $(".dropdown_cata .dropdown-menu").click(function(){
+        console.log("remove")
+        setTimeout(()=>{
+          $(".dropdown-menu").removeClass("open");
+        },200)
+      })
+    }
+  },
+  methods: {
+    toggleNav(){
+      $(".navbar-collapse").collapse('hide');
+    }
+  }
 }
 </script>
