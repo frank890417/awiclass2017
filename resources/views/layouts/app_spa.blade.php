@@ -17,7 +17,7 @@
         <meta property="og:image" content="{{$meta_og['cover']}}">
         <meta property="og:description" content="{{$meta_og['description']}}">
     @else
-        <title>雜學校Zashare-亞洲最大創新教育展</title>
+        <title>Hahow 動態互動網頁程式入門</title>
     @endif
 
 
