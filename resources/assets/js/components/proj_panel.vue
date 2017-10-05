@@ -5,7 +5,7 @@ div.panel_proj
       h1 {{ title }}
         .pull-right
           a.btn.btn-secondary(v-bind:href="'https://www.facebook.com/'+now_hash", target='_blank') 我要交作業(留言)
-      hr
+      //hr
       h4(v-show='!posts.length') 載入資料中...
       .row
         .col-sm-3
@@ -23,7 +23,7 @@ div.panel_proj
             | 新 &gt; 舊
           button.btn.btn-default(@click="rank=0", :class="{'btn-primary':rank==0 }")
             | 舊 &gt; 新
-    
+      br
   .row(v-for="cut_post_group in cut_post")
     div(v-show="filter==''" ,
         :class="{'col-sm-4': d_size=='small','col-sm-6':d_size!='small'}"

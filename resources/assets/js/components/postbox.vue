@@ -6,7 +6,7 @@
       h5(v-html="person")
       p(v-html='para')
       h6
-        a.time(:href='comment_url', target='_blank') {{post.created_time}}
+        a.time(:href='comment_url', target='_blank') {{time}}
 
 </template>
 
@@ -23,8 +23,17 @@ props: ["post","filter","count_id"],
     person(){
       return "<a class='author' href=\"https://www.facebook.com/"+this.post.from.id+"\" target='_blank'> "+this.post.from.name+"</a>";
     },
+    time(){
+      return this.post.created_time.replace("T"," ").replace("+0000","")
+    },
     para(){
-      return this.post.message.replace(/(?:\r\n|\r|\n)/g, "<br>").replace(/https?:\/\/(www\.)?[-a-zA-Z0-9@:%._\+~#=]{2,256}\.[a-z]{2,6}\b([-a-zA-Z0-9@:%_\+.~#?&//=]*)/g,"")
+      let url_regex = /https?:\/\/(www\.)?[-a-zA-Z0-9@:%._\+~#=]{2,256}\.[a-z]{2,6}\b([-a-zA-Z0-9@:%_\+.~#?&//=]*)/g
+      let result = this.post.message
+                   .replace(/(?:\r\n|\r|\n)/g, "<br>")
+                   .replace(url_regex,"")
+                   .replace(/^<br>/g,"")
+                   .replace(/^<br>/g,"")
+      return result
     },
     ap(){
         const regex = /[^i\/][^o\/]\/([a-zA-Z0-9\_]{6})/g;
