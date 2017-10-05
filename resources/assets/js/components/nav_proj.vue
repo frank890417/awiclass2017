@@ -19,23 +19,26 @@ ul.list-group.nav_proj
   //- button.fbshare_btn(@click='sw(\"share_course\")') （๑ • ‿ • ๑ ）分享課程
   br
   br
-  //- chatpanel(:messages='messages')
-    br
+  chat_panel
+  br
 
 
 </template>
 
 <script>
+import chat_panel from './chat_panel'
 import $ from 'jquery'
 import {mapState} from 'vuex'
 
 export default {
+  components: {
+    chat_panel
+  },
   props: [
     'class_id'
   ],
   data(){
     return {
-      
     }
   },
   mounted(){
@@ -43,6 +46,7 @@ export default {
         var nowy=$(window).scrollTop()+70
         $(".nav_follow").css("margin-top",nowy+"px")
     });
+
   },
   computed:{
     ...mapState(['projs_info'])

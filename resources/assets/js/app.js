@@ -27,6 +27,8 @@ if (document.domain!="awiclass2017.dev"){
     router
   })
 }
+
+
 const app = new Vue({
     el: '#app',
     router,
@@ -35,3 +37,26 @@ const app = new Vue({
         App
     }
 });
+
+
+setTimeout(()=>{
+
+    // var firebase = require('firebase');
+    //初始化firebase
+    var config = {
+        apiKey: "AIzaSyDMm8AoI0gjcmCK53u32KNAvchIUBbbLG0",
+        authDomain: "monoame-awicourse.firebaseapp.com",
+        databaseURL: "https://monoame-awicourse.firebaseio.com",
+        storageBucket: "",
+        messagingSenderId: "300246568938"
+    };
+
+    firebase.initializeApp(config);
+
+    let db = firebase.database();
+
+    db.ref('messages').limitToLast(10).on('value',function(snapshot) {
+        console.log(snapshot.val());
+        store.commit("setMessages",snapshot.val())
+    });
+},1000)

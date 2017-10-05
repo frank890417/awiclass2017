@@ -40,11 +40,15 @@ const store = new Vuex.Store({
         hash: '777826799056370',
         class_id: "2"
       }
-    ]
+    ],
+    messages: {}
   },
   mutations: {
     setLoading(state,value){
       state.loading=value
+    },
+    setMessages(state,value){
+      state.messages = value
     }
   }
 });

@@ -46,7 +46,8 @@
       ga('send', 'pageview');
 
     </script> -->
-      
+    <script type="text/javascript" src="https://www.gstatic.com/firebasejs/3.5.3/firebase.js"></script>
+  
     <div id="fb-root"></div>
     <script>(function(d, s, id) {
       var js, fjs = d.getElementsByTagName(s)[0];
