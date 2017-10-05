@@ -7,7 +7,8 @@
       <br>
     </div>
     <br>
-    <input class='input_name' v-model='name' placeholder='路人'> <input v-model='temptext' placeholder='留句話吧'> <button @click='send'>送出</button>
+    <input class='input_name' v-model='name' placeholder='路人'> 
+    <input v-model='temptext' placeholder='留句話吧'> <button @click='send'>送出</button>
   </div> 
 </template>
 
@@ -25,9 +26,9 @@ export default {
     send: function(){
       if (this.temptext !=""){
         if (this.name=="")
-          send("路人",this.temptext);
+          window.send("路人",this.temptext);
         else
-          send(this.name,this.temptext);
+          window.send(this.name,this.temptext);
         this.temptext="";
       }
     }

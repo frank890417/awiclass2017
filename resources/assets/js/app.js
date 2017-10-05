@@ -59,4 +59,15 @@ setTimeout(()=>{
         console.log(snapshot.val());
         store.commit("setMessages",snapshot.val())
     });
+
+    
+    //傳送聊天訊息
+    window.send=function send(name,mes){
+        var nref=db.ref('messages').push();
+            nref.set({
+            name: name,
+            message: mes,
+            time: new Date().toLocaleString()
+        })
+    }
 },1000)
