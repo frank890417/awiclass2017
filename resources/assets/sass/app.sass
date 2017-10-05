@@ -1,0 +1,177 @@
+
+// Fonts
+@import url("https://fonts.googleapis.com/css?family=Raleway:300,400,600")
+
+// Variables
+@import "variables"
+
+// Bootstrap
+@import "node_modules/bootstrap-sass/assets/stylesheets/bootstrap"
+
+*
+  color: #333
+  font-family: 微軟正黑體
+  vertical-align: top
+
+html
+  background-color: #fafafa
+
+h1, h2, h3, h4, h5, h6
+  font-weight: bold !important
+
+.fade-enter-active ,.fade-leave-active 
+  transition: opacity 0.5s, max-height 0.5s
+  &.panel_proj
+    transition: opacity 0.5s, max-height 0.5s
+  &.view_main
+    transition: opacity 0s, max-height 0s
+.fade-enter, .fade-leave-to 
+  opacity: 0
+  
+.notrans
+  transition: 0s !important
+
+#app
+  background-color: #fafafa
+  // .container
+  //   background-color: #fafafa
+
+
+.list-group-item.active a
+  color: white
+
+.fbpost, .projpost
+  border: solid 1px #eee
+
+.fbpost
+  padding: 10px
+  margin-bottom: 15px
+
+.projpost
+  animation: fadeIn 1s
+  vertical-align: top
+  min-height: 300px
+  border-radius: 5px
+  width: 100%
+  margin: 5px
+  margin-bottom: 15px
+  transition: 0.5s
+  background-color: #fff
+  cursor: pointer
+  &:hover
+    background-color: #eee
+  .content_area
+    padding: 10px 15px
+  img
+    width: 100%
+    border-radius: 5px 5px 0px 0px
+    border-bottom: solid 1px #eee
+  p
+    word-break: break-all
+    margin-top: 10px
+  a.time
+    color: #aaa
+
+.proj_bounded
+  height: 320px
+  &:hover
+    height: auto
+
+.col-sm-4
+  padding-left: 5px
+  padding-right: 5px
+  margin-bottom: 10px
+
+h6
+  opacity: 0.5
+
+.container-fluid
+  max-width: 1200px
+
+
+nav
+  li
+    a:after
+      content: ""
+      display: block
+      width: 0%
+      transform: translateX(-50%)
+      left: 50%
+      height: 3px
+      bottom: 6px
+      background-color: #333
+      position: absolute
+      transition: 0.4s
+    &.disable_current
+      a:after
+        display: none
+
+  .router-link-active
+    position: relative
+    &:after
+      width: 80%
+
+//ul
+  margin: 0
+  box-sizing: border-box
+  // padding: 40px
+  li
+    display: block
+    border-bottom: solid 1px #aaa
+    padding: 5px 10px
+    cursor: pointer
+    transition-duration: 0.5s
+    &.active
+      background-color: #333
+      color: white
+
+.jumbotron
+  background: url('https://hahow.in/images/574fab4f206cd60900c52a67')
+  background-position: center center
+  background-size: auto 100%
+  background-repeat: no-repeat
+  background-color: #f5bc19
+  padding: 10px
+  color: white
+  padding: 10px
+  min-height: 300px
+  background-color: transparent !important
+  border-radius: 0px !important
+  border-bottom: solid 5px #444
+  h2
+    font-weight: bold
+
+.finder_input
+  border: none
+  border: solid 1px #aaa
+  font-size: 0.5em
+  padding: 5px 10px
+  border-radius: 5px
+
+.smalltime
+  margin-left: 10px
+  font-size: 8px
+  color: #bbb
+  vertical-align: bottom
+
+.input_name
+  width: 70px
+
+.chatbox_name
+  background-color: #ccc
+  padding: 3px 5px
+  border-radius: 5px
+
+.chatbox_msg
+  margin-top: 5px
+  border-bottom: solid 1px #ccc
+
+h3 label
+  font-size: 0.6em !important
+  vertical-align: middle
+
+.fbshare_btn
+  background-color: #3b5998
+  color: white
+  border: none
+  padding: 5px 10px

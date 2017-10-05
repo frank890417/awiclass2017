@@ -12,5 +12,18 @@
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('layouts/app_spa');
 });
+Route::get('/proj', function () {
+    return view('layouts/app_spa');
+});
+Route::get('/proj/{classid}', function () {
+    return view('layouts/app_spa');
+});
+Route::get('/proj/{classid}/{hash}', function () {
+    return view('layouts/app_spa');
+});
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
