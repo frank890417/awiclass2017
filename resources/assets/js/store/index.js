@@ -33,6 +33,11 @@ const store = new Vuex.Store({
       {
         name: "Proj.6 Yellow Studio 設計工作室",
         hash: '1745097675508848',
+        class_id: "1",
+      },
+      {
+        name: "Proj.6 Vue動態鋼琴",
+        hash: '1745104002174882',
         class_id: "1"
       },
       {
