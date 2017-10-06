@@ -27,12 +27,12 @@ const store = new Vuex.Store({
       },
       {
         name: "Proj.5 bootstrap製作捲動式網頁",
-        hash: '1745106708841278',
+        hash: '676015375904180',
         class_id: "1"
       },
       {
         name: "Proj.6 Yellow Studio 設計工作室",
-        hash: '1745097675508848',
+        hash: '1745106708841278',
         class_id: "1",
       },
       {
