@@ -4,7 +4,8 @@
     img(:src='imgurl')
     .content_area
       h5(v-html="person")
-      p(v-html='para')
+      p(v-html='para.body+para.extra')
+        //- span(v-show="para.extra!=''") ...閱讀更多
       h6
         a.time(:href='comment_url', target='_blank') {{time}}
 
@@ -14,7 +15,10 @@
 export default {
 props: ["post","filter","count_id","d_size"],
   data(){ 
-    return {expand: false};
+    return {
+      expand: false,
+      para_show: false
+    };
   },
   computed: {
     comment_url(){
@@ -33,7 +37,7 @@ props: ["post","filter","count_id","d_size"],
                    .replace(url_regex,"")
                    .replace(/^<br>/g,"")
                    .replace(/^<br>/g,"")
-      return result
+      return {body: result.slice(0,50), extra: result.slice(50)}
     },
     ap(){
         const regex = /[^i\/][^o\/]\/([a-zA-Z0-9\_]{6})/g;

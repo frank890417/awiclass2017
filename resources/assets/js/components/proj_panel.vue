@@ -107,6 +107,7 @@ export default {
 
     var vobj=this;
 
+    // let para= `${this.now_hash}?fields=comments.order(reverse_chronological)&locale=zh_TW`
     let para= `${this.now_hash}?fields=comments&locale=zh_TW`
     let url = `http://awiclass.monoame.com/api/get_graphapi.php`
 
