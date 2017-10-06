@@ -27,7 +27,7 @@ const store = new Vuex.Store({
       },
       {
         name: "Proj.5 bootstrap製作捲動式網頁",
-        hash: '676015375904180',
+        hash: '1745106708841278',
         class_id: "1"
       },
       {
@@ -36,7 +36,7 @@ const store = new Vuex.Store({
         class_id: "1",
       },
       {
-        name: "Proj.6 Vue動態鋼琴",
+        name: "Proj.7 Vue動態鋼琴",
         hash: '1745104002174882',
         class_id: "1"
       },
