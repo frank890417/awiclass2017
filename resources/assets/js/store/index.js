@@ -31,6 +31,11 @@ const store = new Vuex.Store({
         class_id: "1"
       },
       {
+        name: "Proj.6 Yellow Studio 設計工作室",
+        hash: '1745097675508848',
+        class_id: "1"
+      },
+      {
         name: "Proj.1 使用html/css撰寫一份自己的網頁履歷",
         hash: '775644402607943',
         class_id: "2"
