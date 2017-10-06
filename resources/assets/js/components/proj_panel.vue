@@ -98,22 +98,22 @@ export default {
 
     var vobj=this;
 
-    let para= `${this.now_hash}?fields=comments&pretty=0&limit=10&locale=zh_TW`
+    let para= `${this.now_hash}?fields=comments&locale=zh_TW`
     let url = `http://awiclass.monoame.com/api/get_graphapi.php`
 
-    var fetch = (url,stage)=>{
+    var fetch = (url,stage,datas)=>{
       console.log(url)
-      axios.get(url).then((res)=>{
+      axios.get(url,{params: datas}).then((res)=>{
         console.log(res.data)
         let result = stage==0?res.data.comments:res.data
        
         this.posts=this.posts.concat(result.data)
         if (result.paging.next){
-          fetch(result.paging.next,stage+1)
+          fetch(result.paging.next,stage+1,{})
         }
       })
     }
-    fetch(url+"?para="+para,0)
+    fetch(url,0,{para: para})
 
     $(window).scroll(function(){
 
