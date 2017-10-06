@@ -12,7 +12,9 @@ div.panel_proj
           h4
             | {{filter==''?('共有'+posts.length+'項作品'):('共有'+filtered_post.length+'項作品搜尋結果')}}
         .col-sm-3
-          input.form-control(placeholder='輸入過濾名字/內文', v-model='filter')
+          input.form-control(list="filter_input",placeholder='輸入過濾名字/內文', v-model='filter')
+          datalist#filter_input
+            option(v-for= "op in allnames", :value="op")
         .col-sm-3.btn-group.pull-right.hidden-xs
           button.btn.btn-default(@click="d_size='small'", :class="{'btn-primary':d_size=='small' }")
             | 小呈現
@@ -31,8 +33,8 @@ div.panel_proj
       postbox(:d_size='d_size', 
               :post='p', :key="p.id")
   .row(v-show="filter!=''")
-    .col-sm-4
-      postbox(v-for='p in filtered_post', :post='p', :key="p.id")
+    .col-sm-4(v-for='p in filtered_post')
+      postbox(:post='p', :key="p.id")
   .row
     .toggle_bar
 
@@ -82,15 +84,22 @@ export default {
         return _.chunk(result,2)
       }
     },
-    filtered_post: function(){
-      var p=[];
-      var use_posts = this.posts.slice(0,this.display_num);
-      for(var i=0;i<use_posts.length;i++){
-        if (use_posts[i].message.indexOf(this.filter)!=-1 || use_posts[i].from.name.indexOf(this.filter)!=-1 ){
-          p.push(use_posts[i]);
-        }
+    filtered_post(){
+      let use_posts = 
+        this.posts.filter(post=>post.message.indexOf(this.filter)!=-1 || post.from.name.indexOf(this.filter)!=-1)
+                  .slice(0,this.display_num)
+      return use_posts;
+    },
+    filterOptions(){
+      if (this.filter==""){
+        return []
       }
-      return p;
+      let result= this.posts.map(o=>o.from.name).filter(n=>n.indexOf(this.filter!=-1))
+      return result.slice(0,10)
+    },
+    allnames(){
+      let result= this.posts.map(o=>o.from.name)
+      return result
     }
   },
   mounted(){
