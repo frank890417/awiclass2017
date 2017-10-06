@@ -26,7 +26,7 @@ nav.navbar.navbar-default.navbar-fixed-top
            @click="$ga.event('link', 'click', '前往課程-特效')" ,target="_blank") 特效課程
         li
           a(href="https://www.facebook.com/groups/600360513469667/",
-           @click="$ga.event('link', 'click', '前往fb社團')", target="_blank")  前往FB社團
+           @click="$ga.event('link', 'click', '前往fb社團')", target="_blank")  FB社團
         li
           a(href="http://monoame.com",
            @click="$ga.event('link', 'click', '墨雨設計')", target="_blank")  墨雨設計

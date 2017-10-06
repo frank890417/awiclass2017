@@ -1,6 +1,7 @@
 <template lang="pug">
 
 ul.list-group.nav_proj
+  h4 章節 Projects
   li.list-group-item(
     v-for="(proj,pid) in projs_info.filter(o=>o.class_id==class_id)",
     :class="{active: ($route.params.proj_fb_hash==proj.hash) || (!$route.params.proj_fb_hash && pid==0) }")
@@ -15,9 +16,10 @@ ul.list-group.nav_proj
   //- li(@click='sw(\"hahowdatas\")', :class='[page==\"hahowdatas\"?\"active\":\"\"]')  Hahow單元資訊
   //- li(@click='sw(\"to_explain_hand_page\")')  新增作品方式
   //- button.fbshare_btn(@click='sw(\"share_course\")') （๑ • ‿ • ๑ ）分享課程
-
+  hr
+  h4 即時留言板 (Firebase)
   chat_panel.hidden-xs
-  br
+  
 
 
 </template>

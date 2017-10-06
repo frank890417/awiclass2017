@@ -1,15 +1,15 @@
-<template>
- <div><br><h4>Firebase即時留言板(最新10則)</h4>
-  <hr>
-    <div class='chatbox_msg' v-for="m in messages">
-      <span class=chatbox_name>{{m.name}}</span>: {{m.message}}
-      <span class='smalltime'>{{m.time}} </span>
-      <br>
-    </div>
-    <br>
-    <input class='input_name' v-model='name' placeholder='路人'> 
-    <input v-model='temptext' placeholder='留句話吧'> <button @click='send'>送出</button>
-  </div> 
+<template lang="pug">
+div
+  .chatbox_msg(v-for='m in messages')
+    span.chatbox_name {{m.name}}
+    | : {{m.message}}
+    span.smalltime {{m.time}} 
+    br
+  br
+  input.input_name(v-model='name', placeholder='路人')
+  input(v-model='temptext', placeholder='留句話吧')
+  button(@click='send') 送出
+
 </template>
 
 <script>

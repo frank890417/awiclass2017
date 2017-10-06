@@ -6,11 +6,11 @@ div.panel_proj
         .pull-right
           a.btn.btn-secondary(v-bind:href="'https://www.facebook.com/'+now_hash", target='_blank') 我要交作業(留言)
       //hr
-      h4(v-show='!posts.length') 載入資料中...
       .row
         .col-sm-3
           h4
-            | {{filter==''?('共有'+posts.length+'項作品'):('共有'+filtered_post.length+'項作品搜尋結果')}}
+            span(v-show='posts.length') {{filter==''?('共有'+posts.length+'項作品'):('共有'+filtered_post.length+'項作品搜尋結果')}}
+            span(v-show='!posts.length') 載入資料中...
         .col-sm-3
           input.form-control(list="filter_input",placeholder='輸入過濾名字/內文', v-model='filter')
           datalist#filter_input
