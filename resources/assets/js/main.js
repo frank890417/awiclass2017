@@ -119,7 +119,7 @@ Vue.component("fieldswitch",{
               <li @click='sw(\"proj2\")' :class='[page==\"proj2\"?\"active\":\"\"]'>Project.2 視覺規範 ({{pjnum[2]}}件)</li>\
               <li @click='sw(\"proj3\")' :class='[page==\"proj3\"?\"active\":\"\"]'>Project.3 天氣盒子 ({{pjnum[3]}}件)</li>\
               <li @click='sw(\"proj4\")' :class='[page==\"proj4\"?\"active\":\"\"]'>Project.4 代辦清單 ({{pjnum[4]}}件)</li>\
-              \
+             
               <li @click='sw(\"hahowdatas\")' :class='[page==\"hahowdatas\"?\"active\":\"\"]'> Hahow單元資訊</li>\
               <li @click='sw(\"to_hahow_course_page\")' > 前往課程頁面</li>\
               <li @click='sw(\"to_fb_club_page\")' > 前往FB社團(學生專用)</li>\
@@ -167,7 +167,7 @@ Vue.component("fieldswitch",{
 
 //fb貼文總覽的群組組件(下層是fbpost)
 Vue.component("hahowlecture",{
-  template: "<div > \
+  template: "<div >
                 <div>{{hdata.title}}</div>\
             </div>",
   props: ["hdata"]
@@ -175,10 +175,10 @@ Vue.component("hahowlecture",{
 
 //fb貼文總覽的群組組件(下層是fbpost)
 Vue.component("hahowpanel",{
-  template: "<div class='col-sm-9'> \
+  template: "<div class='col-sm-9'>
                 <div class='col-sm-12'><h3>Hahow單元資訊</h3><hr></div>\
-                <hahowlecture class='col-sm-12' v-for='h in hahowdatas' :hdata='h'> \
-                </hahowlecture> \
+                <hahowlecture class='col-sm-12' v-for='h in hahowdatas' :hdata='h'>
+                </hahowlecture>
             </div>",
   props: ["hahowdatas"]
 });
@@ -198,10 +198,10 @@ Vue.component("fbpost",{
 })
 //fb貼文總覽的群組組件(下層是fbpost)
 Vue.component("fbpostpanel",{
-  template: "<div class='col-sm-9'> \
+  template: "<div class='col-sm-9'>
                 <div class='col-sm-12'><h3>FB社團po文節錄(調整中)</h3><hr></div>\
-                <fbpost class='col-sm-12' v-for='p in posts' :post='p'> \
-                </fbpost> \
+                <fbpost class='col-sm-12' v-for='p in posts' :post='p'>
+                </fbpost>
             </div>",
   props: ["posts"]
 });
@@ -317,17 +317,17 @@ Vue.component("profile_post",{
 });
 //專案總覽的群組組件(下層proj_post)
 Vue.component("profilepanel",{
-  template: "<div> \
+  template: "<div>
               <div class='col-sm-12'>\
                 <h2 v-show='!profiles.length'>載入資料中...</h2>\
-                <h3>{{filter==''?('共有'+profiles.length+'項資料'):''}} \
-                 <a href='https://www.facebook.com/groups/600360513469667/permalink/600365056802546/' target='_blank'>(帳號搜集貼文網址)</a> \
+                <h3>{{filter==''?('共有'+profiles.length+'項資料'):''}}
+                 <a href='https://www.facebook.com/groups/600360513469667/permalink/600365056802546/' target='_blank'>(帳號搜集貼文網址)</a>
                  <input class='finder_input' placeholder='輸入過濾名字/內文' v-model='filter'>\
                  &nbsp;&nbsp;&nbsp;&nbsp;\
-                </h3> \
+                </h3>
               </div>\
               <div v-show=\"filter==''\" class='col-sm-12'>\
-                <profile_post v-for='p in profiles' :d_size='d_size' :profile='p' :filter='filter' /> \
+                <profile_post v-for='p in profiles' :d_size='d_size' :profile='p' :filter='filter' />
               </div>\
               <h2 class='loadfac_profile'>...</h2>\
             </div>",
@@ -348,11 +348,11 @@ Vue.component("profilepanel",{
 
 //專案總覽的群組組件(下層proj_post)
 Vue.component("projpanel",{
-  template: "<div> \
+  template: "<div>
               <div class='col-sm-12 posts_list'>\
                 <h2 v-show='!posts.length'>載入資料中...</h2>\
-                <h3>{{filter==''?('共有'+posts.length+'項作品'):('共有'+filtered_post.length+'項作品搜尋結果')}} \
-                 <a v-bind:href=\"'https://www.facebook.com/'+proj_fb_hash\" target='_blank'>(繳交貼文網址)</a> \
+                <h3>{{filter==''?('共有'+posts.length+'項作品'):('共有'+filtered_post.length+'項作品搜尋結果')}}
+                 <a v-bind:href=\"'https://www.facebook.com/'+proj_fb_hash\" target='_blank'>(繳交貼文網址)</a>
                  <input class='finder_input' placeholder='輸入過濾名字/內文' v-model='filter'>\
                  &nbsp;&nbsp;&nbsp;&nbsp;\
                  <label>小呈現\
@@ -361,19 +361,19 @@ Vue.component("projpanel",{
                  <label>大呈現\
                     <input class='input_size' type='radio' value='big' v-model='d_size'></input>\
                  </label>\
-                </h3> \
+                </h3>
               </div>\
               <div v-show=\"filter==''\" :class=\"[d_size=='small'?'col-sm-4':'col-sm-6']\">\
-                <proj_post v-for='p in cut_post[0]' :d_size='d_size' :post='p' :filter='filter' v-if=\"p.message.indexOf(\'http\')>=0\" /> \
+                <proj_post v-for='p in cut_post[0]' :d_size='d_size' :post='p' :filter='filter' v-if=\"p.message.indexOf(\'http\')>=0\" />
               </div>\
               <div v-show=\"filter==''\" :class=\"[d_size=='small'?'col-sm-4':'col-sm-6']\">\
-                <proj_post v-for='p in cut_post[1]' :d_size='d_size' :post='p' :filter='filter' v-if=\"p.message.indexOf(\'http\')>=0\" /> \
+                <proj_post v-for='p in cut_post[1]' :d_size='d_size' :post='p' :filter='filter' v-if=\"p.message.indexOf(\'http\')>=0\" />
               </div>\
               <div v-show=\"filter==''\" :class=\"[d_size=='small'?'col-sm-4':'col-sm-6']\">\
-                <proj_post v-for='p in cut_post[2]' :d_size='d_size' :post='p' :filter='filter' v-if=\"p.message.indexOf(\'http\')>=0\" /> \
+                <proj_post v-for='p in cut_post[2]' :d_size='d_size' :post='p' :filter='filter' v-if=\"p.message.indexOf(\'http\')>=0\" />
               </div>\
-              <proj_post v-show=\"filter!=''\" class='col-sm-4' v-for='p in filtered_post' :post='p' v-if=\"p.message.indexOf(\'http\')>=0\" /> \
-              \
+              <proj_post v-show=\"filter!=''\" class='col-sm-4' v-for='p in filtered_post' :post='p' v-if=\"p.message.indexOf(\'http\')>=0\" />
+             
               <div class='toggle_bar'></div>\
             </div>",
   props: ["posts","proj_fb_hash"],
@@ -447,9 +447,9 @@ function send(name,mes){
 }
 //聊天訊息總覽的組件
 Vue.component("chatpanel",{
-  template: "<div><br><h4>Firebase即時留言板(最新10則)</h4> \
+  template: "<div><br><h4>Firebase即時留言板(最新10則)</h4>
               <hr>\
-                <div class='chatbox_msg' v-for=\"m in messages \"><span class=chatbox_name>{{m.name}}</span>: {{m.message}}\
+                <div class='chatbox_msg' v-for=\"m in messages"><span class=chatbox_name>{{m.name}}</span>: {{m.message}}\
                   <span class='smalltime'>{{m.time}} </span>\
                   <br>\
                 </div>\
@@ -506,10 +506,10 @@ var vm = new Vue({
       return lenresult;
     }
   },
-  template: "<div class='container-fluid'> \
-  <div class='jumbotron'> \
-    <h2>[AWI] 動畫互動網頁程式入門 課程FB社團</h2> \
-  </div> \
+  template: "<div class='container-fluid'>
+  <div class='jumbotron'>
+    <h2>[AWI] 動畫互動網頁程式入門 課程FB社團</h2>
+  </div>
   <div class=row><fieldswitch class='col-sm-3 fieldswitch' :page='page' :pjnum='pjnumarray' :messages='messages' />\
   <fbpostpanel class='col-sm-9' v-if='page==\"club\"' :posts='fd.feed.data'/>\
   <projpanel class='col-sm-9' v-show='page==\"proj1\"' :posts='proj1.data' :proj_fb_hash='600361653469553'/>\

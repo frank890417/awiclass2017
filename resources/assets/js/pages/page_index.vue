@@ -24,9 +24,7 @@
 import proj_panel from '../components/proj_panel.vue'
 import nav_proj from '../components/nav_proj.vue'
 export default {
-  props: {
-    class_id: Number
-  },
+  props: ["class_id"],
   components: {
     proj_panel,nav_proj
   },

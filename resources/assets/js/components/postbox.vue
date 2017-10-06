@@ -12,7 +12,7 @@
 
 <script>
 export default {
-props: ["post","filter","count_id"],
+props: ["post","filter","count_id","d_size"],
   data(){ 
     return {expand: false};
   },
@@ -53,8 +53,9 @@ props: ["post","filter","count_id"],
       if (str.indexOf('http')!=-1){
         var res = str.match(regex)[0].substr(3);
         var res2=str.match(regex2)[0].substr(3);
-        var template="http://codepen.io/username/pen/penname/image/small.png";
-        return template.replace("username",res2).replace("penname",res);
+        var template="http://codepen.io/USERNAME/pen/PENNAME/image/SIZE.png";
+        return template
+          .replace("USERNAME",res2).replace("PENNAME",res).replace("SIZE",this.d_size);
       }else{
         return "";
       }
@@ -66,8 +67,8 @@ props: ["post","filter","count_id"],
       if (str.indexOf('http')!=-1){
         var res = str.match(regex)[0].substr(3);
         var res2=str.match(regex2)[0].substr(3);
-        var template="http://codepen.io/username/pen/penname";
-        return template.replace("username",res2).replace("penname",res);
+        var template="http://codepen.io/USERNAME/pen/PENNAME";
+        return template.replace("USERNAME",res2).replace("PENNAME",res);
       }else{
         return "";
       }

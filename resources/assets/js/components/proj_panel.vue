@@ -18,7 +18,7 @@ div.panel_proj
         .col-sm-3.btn-group.pull-right.hidden-xs
           button.btn.btn-default(@click="d_size='small'", :class="{'btn-primary':d_size=='small' }")
             | 小呈現
-          button.btn.btn-default(@click="d_size='big'", :class="{'btn-primary':d_size=='big' }")
+          button.btn.btn-default(@click="d_size='large'", :class="{'btn-primary':d_size=='large' }")
             | 大呈現
         .col-sm-3.btn-group.pull-right
           button.btn.btn-default(@click="rank=1", :class="{'btn-primary':rank==1 }")
@@ -34,7 +34,7 @@ div.panel_proj
               :post='p', :key="p.id")
   .row(v-show="filter!=''")
     .col-sm-4(v-for='p in filtered_post')
-      postbox(:post='p', :key="p.id")
+      postbox(:post='p', :key="p.id",:d_size="d_size")
   .row
     .toggle_bar
 
@@ -56,7 +56,7 @@ export default {
     return {
       title: "",
       filter: "",
-      display_num: 20,
+      display_num: 15,
       d_size: "small",
       posts: [],
       rank: 0
@@ -124,15 +124,16 @@ export default {
     }
     fetch(url,0,{para: para})
 
+    let _this = this
     $(window).scroll(function(){
 
       if ($(".toggle_bar").length>0){
-        var nowy=$(window).scrollTop()+$(window).outerHeight()+200;
+        var nowy=$(window).scrollTop()+$(window).outerHeight()+$(window).outerHeight()/2;
         var target=$(".toggle_bar").offset().top;
         console.log(nowy,target);
         
         if (nowy>target){
-          vobj.display_num+=12;
+          vobj.display_num+=_this.d_size=="small"?12:8;
         }
       }
     });
