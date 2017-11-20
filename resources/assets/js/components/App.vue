@@ -1,8 +1,8 @@
 <template lang='pug'>
 div
     navbar
-    transition(name='fade', mode='out-in')
-        router-view(:key="$route.path").notrans
+    //- transition(name='fade', mode='out-in')
+    router-view(:key="$route.path")
 </template>
 
 <script>

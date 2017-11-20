@@ -45,6 +45,8 @@ import postbox from "./postbox"
 import _ from 'lodash'
 import $ from 'jquery'
 import {mapState} from 'vuex'
+import store from '../store'
+
 export default {
   components: {
     postbox
@@ -58,13 +60,16 @@ export default {
       filter: "",
       display_num: 15,
       d_size: "small",
-      posts: [],
+      // posts: [],
       rank: 0
      
     }
   },
   computed:{
     ...mapState(['projs_info']),
+    posts(){
+      return this.nowProjObj.posts? this.nowProjObj.posts:[]
+    },
     now_hash(){
       return this.proj_fb_hash?this.proj_fb_hash:this.projs_info.find(o=>o.class_id==this.$route.params.class_id).hash
     },
@@ -100,30 +105,36 @@ export default {
     allnames(){
       let result= this.posts.map(o=>o.from.name)
       return result
+    },
+    nowProjObj(){
+      return this.projs_info.find(o=>o.hash==this.now_hash)
     }
   },
   mounted(){
-    this.title=this.projs_info.find(o=>o.hash==this.now_hash).name
+    this.title = this.nowProjObj.name
 
     var vobj=this;
+    if (!this.nowProjObj.loaded){
+      store.dispatch("loadProject",this.nowProjObj)
+    }
 
     // let para= `${this.now_hash}?fields=comments.order(reverse_chronological)&locale=zh_TW`
-    let para= `${this.now_hash}?fields=comments&locale=zh_TW`
-    let url = `http://awiclass.monoame.com/api/get_graphapi.php`
+    // let para= `${this.now_hash}?fields=comments&locale=zh_TW`
+    // let url = `http://awiclass.monoame.com/api/get_graphapi.php`
 
-    var fetch = (url,stage,datas)=>{
-      console.log(url)
-      axios.get(url,{params: datas}).then((res)=>{
-        console.log(res.data)
-        let result = stage==0?res.data.comments:res.data
+    // var fetch = (url,stage,datas)=>{
+    //   console.log(url)
+    //   axios.get(url,{params: datas}).then((res)=>{
+    //     console.log(res.data)
+    //     let result = stage==0?res.data.comments:res.data
        
-        this.posts=this.posts.concat(result.data)
-        if (result.paging.next){
-          fetch(result.paging.next,stage+1,{})
-        }
-      })
-    }
-    fetch(url,0,{para: para})
+    //     this.posts=this.posts.concat(result.data)
+    //     if (result.paging.next){
+    //       fetch(result.paging.next,stage+1,{})
+    //     }
+    //   })
+    // }
+    // fetch(url,0,{para: para})
 
     let _this = this
     $(window).scroll(function(){

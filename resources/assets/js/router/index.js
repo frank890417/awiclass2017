@@ -63,7 +63,16 @@ const router = new VueRouter({
   routes,
   mode: "history"
 })
+
+import store from '../store'
 router.beforeEach((to, from, next) => {
+  console.log(to)
+
+  let nowProjObj = store.state.projs_info.find(o => o.hash == to.params.proj_fb_hash)
+  if (nowProjObj && nowProjObj.posts.length==0){
+    store.dispatch("loadProject",nowProjObj)
+  }
+
   setTimeout(()=>{
     $("html,body").animate({scrollTop: 0});
   },100)

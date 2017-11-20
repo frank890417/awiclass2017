@@ -6,7 +6,7 @@ ul.list-group.nav_proj
     v-for="(proj,pid) in projs_info.filter(o=>o.class_id==class_id)",
     :class="{active: ($route.params.proj_fb_hash==proj.hash) || (!$route.params.proj_fb_hash && pid==0) }")
     router-link(
-      :to="'/proj/'+class_id+'/'+proj.hash") {{proj.name}}
+      :to="'/proj/'+class_id+'/'+proj.hash") {{proj.name}} {{proj.loaded?("("+proj.posts.length+")"):""}}
   //- li(@click='sw(\"club\")', :class='[page==\"club\"?\"active\":\"\"]') FB討論社團
   //- li(@click='sw(\"profiles\")', :class='[page==\"profiles\"?\"active\":\"\"]') 同學Codepen集合 ({{pjnum[0]}}件)
   //- li(@click='sw(\"proj1\")', :class='[page==\"proj1\"?\"active\":\"\"]') Project.1 名片 ({{pjnum[1]}}件)

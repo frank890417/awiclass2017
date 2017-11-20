@@ -35,6 +35,9 @@ const app = new Vue({
     store,
     components: {
         App
+    },
+    mounted(){
+        store.dispatch("initWebsite")
     }
 });
 
