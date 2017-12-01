@@ -58,6 +58,12 @@ const store = new Vuex.Store({
         hash: '777826799056370',
         class_id: "2",
         posts: []
+      },
+      {
+        name: "Project.3 做一個摩斯密碼翻譯器",
+        hash: '813963862109330',
+        class_id: "2",
+        posts: []
       }
     ],
     messages: {}
