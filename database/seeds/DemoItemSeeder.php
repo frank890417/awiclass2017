@@ -28,7 +28,7 @@ class DemoItemSeeder extends Seeder
             "code"=>"TA0_E",
             "description"=>"你可以穿著他踩泥巴",
             "color"=>"黑色",
-            "count"=>10,
+            "count"=>3,
             "img"=>"/img/shoe_3523tg.jpg"
         ]);
         Demoitem::create([
@@ -37,7 +37,7 @@ class DemoItemSeeder extends Seeder
             "code"=>"OI66",
             "description"=>"厚底 好穿 灰撲撲",
             "color"=>"灰色",
-            "count"=>10,
+            "count"=>0,
             "img"=>"/img/shoe_235g.jpg"
         ]);
         Demoitem::create([
@@ -46,7 +46,7 @@ class DemoItemSeeder extends Seeder
             "code"=>"KY24",
             "description"=>"這應該是名牌吧",
             "color"=>"白色",
-            "count"=>10,
+            "count"=>5,
             "img"=>"/img/shoe_34tv3ws.jpeg"
         ]);
         Demoitem::create([
@@ -55,7 +55,7 @@ class DemoItemSeeder extends Seeder
             "code"=>"JE42",
             "description"=>"隱性增高",
             "color"=>"黑色",
-            "count"=>10,
+            "count"=>1,
             "img"=>"/img/shoe_23vrga.jpeg"
         ]);
         Demoitem::create([
@@ -64,7 +64,7 @@ class DemoItemSeeder extends Seeder
             "code"=>"ET50_E",
             "description"=>"灰色布鞋哦",
             "color"=>"灰色",
-            "count"=>10,
+            "count"=>7,
             "img"=>"/img/shoe_2dgegr.jpg"
         ]);
 
