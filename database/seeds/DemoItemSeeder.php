@@ -1,7 +1,7 @@
 <?php
 
 use Illuminate\Database\Seeder;
-use App\DemoItem;
+use App\Demoitem;
 class DemoItemSeeder extends Seeder
 {
     /**
@@ -12,8 +12,8 @@ class DemoItemSeeder extends Seeder
     public function run()
     {
         //
-        DemoItem::truncate();
-        DemoItem::create([
+        Demoitem::truncate();
+        Demoitem::create([
             "name"=>"米鞋",
             "price"=>100,
             "code"=>"ZE10_W",
@@ -22,7 +22,7 @@ class DemoItemSeeder extends Seeder
             "count"=>10,
             "img"=>"/img/shoe_452.jpg"
         ]);
-        DemoItem::create([
+        Demoitem::create([
             "name"=>"黑色布鞋",
             "price"=>250,
             "code"=>"TA0_E",
@@ -31,7 +31,7 @@ class DemoItemSeeder extends Seeder
             "count"=>10,
             "img"=>"/img/shoe_3523tg.jpg"
         ]);
-        DemoItem::create([
+        Demoitem::create([
             "name"=>"灰厚鞋",
             "price"=>200,
             "code"=>"OI66",
@@ -40,7 +40,7 @@ class DemoItemSeeder extends Seeder
             "count"=>10,
             "img"=>"/img/shoe_235g.jpg"
         ]);
-        DemoItem::create([
+        Demoitem::create([
             "name"=>"黑白帆布鞋",
             "price"=>530,
             "code"=>"KY24",
@@ -49,7 +49,7 @@ class DemoItemSeeder extends Seeder
             "count"=>10,
             "img"=>"/img/shoe_34tv3ws.jpeg"
         ]);
-        DemoItem::create([
+        Demoitem::create([
             "name"=>"皮厚底鞋",
             "price"=>530,
             "code"=>"JE42",
@@ -58,7 +58,7 @@ class DemoItemSeeder extends Seeder
             "count"=>10,
             "img"=>"/img/shoe_23vrga.jpeg"
         ]);
-        DemoItem::create([
+        Demoitem::create([
             "name"=>"灰跑鞋",
             "price"=>100,
             "code"=>"ET50_E",
