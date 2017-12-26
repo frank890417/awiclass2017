@@ -18,7 +18,7 @@ class DemoFormController extends Controller
             return $inputs;
         }
         $res = "<h3>後端收到了資料：</h3><ul>";
-        $res = $res."<li>名字:".$inputs['name']."</li><li>商品:".$inputs['option']?$inputs['option']:"未選擇"."</li>";
+        $res = $res."<li>名字:".$inputs['name']."</li><li>商品:".array_key_exists('option',$inputs)?$inputs['option']:"未選擇"."</li>";
         $res = $res."<li>心得:".$inputs['comment']."</li>";
         $res = $res."<li>推薦:".$inputs['recommand']?"是":"否"."</li>";
         $res = $res."<li>系統回覆:".$inputs['response']."</li>";
