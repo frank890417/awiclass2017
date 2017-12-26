@@ -3,6 +3,9 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Input;
+use Illuminate\Support\Facades\Redirect;
+use Illuminate\Support\Facades\DB;
 use App\Demoitem;
 
 class DemoShopController extends Controller
@@ -14,7 +17,7 @@ class DemoShopController extends Controller
      */
 
     public function index(){
-        return Demoitem::all();
+        return Demoitem::all("id","name","code");
     }
     public function show($id){
         $result = Demoitem::find($id);

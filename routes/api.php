@@ -18,4 +18,8 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 });
 Route::group(['prefix'=>'/demo'],function(){
     Route::resource('shop','DemoShopController');
+    Route::post("/feedback",'DemoFormController@getFormData'); 
+    Route::get("/feedback",function(){
+        return "請使用POST方法";
+    }); 
 });
