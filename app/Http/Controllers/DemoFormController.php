@@ -13,6 +13,17 @@ class DemoFormController extends Controller
     //
     public function getFormData(){
         $inputs =  Input::all();
-        return $inputs;
+        $inputs["response"]=$inputs['recommand']?"感謝你的熱愛":"嗚嗚很難過你不喜翻";
+        if ($inputs['json']==true){
+            return $inputs;
+        }
+        $res = "<h3>後端收到了資料：</h3><ul>";
+        $res = $res."<li>名字:".$inputs['name']."</li><li>商品:".$inputs['option']."</li>";
+        $res = $res."<li>心得:".$inputs['comment']."</li>";
+        $res = $res."<li>推薦:".$inputs['recommand']?"是":"否"."</li>";
+        $res = $res."<li>系統回覆:".$inputs['response']."</li>";
+        $res = $res."<li>原始資料:".json_encode($inputs)."</li>";
+
+        return  $res;
     }
 }
