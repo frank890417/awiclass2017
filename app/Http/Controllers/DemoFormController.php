@@ -13,7 +13,7 @@ class DemoFormController extends Controller
     //
     public function getFormData(){
         $inputs =  Input::all();
-        $inputs["response"]=$inputs['recommand']?"感謝你的熱愛":"嗚嗚很難過你不喜翻";
+        $inputs["response"]= (array_key_exists('recommand',$inputs) && $inputs['recommand'])?"感謝你的熱愛":"嗚嗚很難過你不喜翻";
         if ($inputs['json']==true){
             return $inputs;
         }
