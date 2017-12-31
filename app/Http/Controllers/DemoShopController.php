@@ -17,7 +17,7 @@ class DemoShopController extends Controller
      */
 
     public function index(){
-        return Demoitem::all("id","name","code");
+        return Demoitem::all("id","name","code","img");
     }
     public function show($id){
         $result = Demoitem::find($id);
