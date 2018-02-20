@@ -22,4 +22,5 @@ Route::group(['prefix'=>'/demo'],function(){
     Route::get("/feedback",function(){
         return "請使用POST方法";
     }); 
+    Route::get("/memorygame/leveldata",'GameController@getMemoryGameLevels'); 
 });
