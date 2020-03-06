@@ -40,7 +40,7 @@ props: ["post","filter","count_id","d_size"],
       return {body: result.slice(0,50), extra: result.slice(50)}
     },
     ap(){
-        const regex = /[^i\/][^o\/]\/([a-zA-Z0-9\_]{6})/g;
+        const regex = /[^i\/][^o\/]\/([a-zA-Z0-9\_]{6}[a-zA-Z0-9\_]?)/g;
         const regex2= /io\/.*?([a-zA-Z0-9\_]*)/g;
         var str = this.post.message; 
         if (str.match(regex)){
@@ -51,7 +51,7 @@ props: ["post","filter","count_id","d_size"],
         return null;
     },
     imgurl(){
-      const regex = /[^i\/][^o\/]\/([a-zA-Z0-9\_]{6})/g;
+      const regex = /[^i\/][^o\/]\/([a-zA-Z0-9\_]{6}[a-zA-Z0-9\_]?)/g;
       const regex2= /io\/.*?([a-zA-Z0-9\_]*)/g;
       var str = this.post.message; 
       if (str.indexOf('http')!=-1){
@@ -65,7 +65,7 @@ props: ["post","filter","count_id","d_size"],
       }
     },
     penurl(){
-      const regex = /[^i\/][^o\/]\/([a-zA-Z0-9\_]{6})/g;
+      const regex = /[^i\/][^o\/]\/([a-zA-Z0-9\_]{6}[a-zA-Z0-9\_]?)/g;
       const regex2= /io\/.*?([a-zA-Z0-9\_]*)/g;
       var str = this.post.message; 
       if (str.indexOf('http')!=-1){
