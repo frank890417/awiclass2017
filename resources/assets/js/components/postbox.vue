@@ -1,5 +1,5 @@
 <template lang="pug">
-.projpost
+.projpost(:key="post.from.name")
   a(:href='penurl', target='_blank', title='點擊前往作品codepen')
     img(:src='imgurl')
     .content_area
@@ -8,6 +8,8 @@
         //- span(v-show="para.extra!=''") ...閱讀更多
       h6
         a.time(:href='comment_url', target='_blank') {{time}}
+        .pull-right.time(v-if="post.from.type=='hahow'") (Hahow)
+        .pull-right.time(v-else)  (FB)
 
 </template>
 
@@ -25,6 +27,9 @@ props: ["post","filter","count_id","d_size"],
       return "https://www.facebook.com/"+this.post.id;
     },
     person(){
+      if (this.post.from.type=="hahow"){
+        return "<a class='author' href=\"https://hahow.in/@"+this.post.from.id+"\" target='_blank'> "+this.post.from.name+"</a>";
+      }
       return "<a class='author' href=\"https://www.facebook.com/"+this.post.from.id+"\" target='_blank'> "+this.post.from.name+"</a>";
     },
     time(){
