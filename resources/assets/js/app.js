@@ -20,6 +20,7 @@ import store from './store'
 import App from './components/App.vue'
 
 import VueAnalytics from 'vue-analytics'
+import axios from 'axios';
 
 if (document.domain!="awiclass2017.dev"){
   Vue.use(VueAnalytics, {
@@ -29,6 +30,7 @@ if (document.domain!="awiclass2017.dev"){
 }
 
 
+
 const app = new Vue({
     el: '#app',
     router,
@@ -36,8 +38,27 @@ const app = new Vue({
     components: {
         App
     },
-    mounted(){
-        store.dispatch("initWebsite")
+    created(){
+
+        axios.get("/data/同學作品集.json").then(res=>{
+            let portfolioData = res.data
+            portfolioData.forEach( (portfolio)=> {
+                portfolio.posts = portfolio.posts.map(p=>({
+                    ...p,
+                    from: {
+                        name: p.name,
+                        id: p.fbid
+                    },
+                    created_time: (new Date( parseInt(p.ts*1000))).toLocaleDateString(),
+                    message: p.commentText + " " + p.codepenUrl,
+                }))
+                
+            })
+            // console.log(portfolioData)
+            store.commit("setProjsInfo",portfolioData)
+        })
+        // store.dispatch("initWebsite")
+        // store.commit("setProjsInfo",portfolioData)
     }
 });
 

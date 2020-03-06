@@ -2,6 +2,7 @@
 div.panel_proj
   .row
     .col-sm-12
+      //- pre {{ nowProjObj }}
       h1 {{ title }}
         .pull-right
           a.btn.btn-secondary(v-bind:href="'https://www.facebook.com/'+now_hash", target='_blank') 我要交作業(留言)
@@ -21,9 +22,9 @@ div.panel_proj
           button.btn.btn-default(@click="d_size='large'", :class="{'btn-primary':d_size=='large' }")
             | 大呈現
         .col-sm-3.btn-group.pull-right
-          button.btn.btn-default(@click="rank=1", :class="{'btn-primary':rank==1 }")
+          button.btn.btn-default(@click="rank=1", :class="{'btn-primary':rank==0 }")
             | 新 &gt; 舊
-          button.btn.btn-default(@click="rank=0", :class="{'btn-primary':rank==0 }")
+          button.btn.btn-default(@click="rank=0", :class="{'btn-primary':rank==1 }")
             | 舊 &gt; 新
       br
   .row(v-for="cut_post_group in cut_post")
@@ -61,7 +62,7 @@ export default {
       display_num: 15,
       d_size: "small",
       // posts: [],
-      rank: 0
+      rank: 1
      
     }
   },
@@ -114,9 +115,9 @@ export default {
     this.title = this.nowProjObj.name
 
     var vobj=this;
-    if (!this.nowProjObj.loaded){
-      store.dispatch("loadProject",this.nowProjObj)
-    }
+    //- if (!this.nowProjObj.loaded){
+    //-   store.dispatch("loadProject",this.nowProjObj)
+    //- }
 
     // let para= `${this.now_hash}?fields=comments.order(reverse_chronological)&locale=zh_TW`
     // let para= `${this.now_hash}?fields=comments&locale=zh_TW`

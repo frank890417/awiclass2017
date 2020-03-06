@@ -74,33 +74,36 @@ const store = new Vuex.Store({
     },
     setMessages(state,value){
       state.messages = value
+    },
+    setProjsInfo(state,value){
+      state.projs_info = value
     }
   },
   actions: {
-    loadProject(context,proj) {
-      if (!proj.loading){
-        proj.loaded=true
+    // loadProject(context,proj) {
+    //   if (!proj.loading){
+    //     proj.loaded=true
 
-        let para = `${proj.hash}?fields=comments&locale=zh_TW`
-        let url = `http://awiclass.monoame.com/api/get_graphapi.php`
+    //     let para = `${proj.hash}?fields=comments&locale=zh_TW`
+    //     let url = `http://awiclass.monoame.com/api/get_graphapi.php`
         
-        var fetch = (url, stage, datas) => {
-          console.log(url)
-          axios.get(url, { params: datas }).then((res) => {
-            console.log(res.data)
-            let result = stage == 0 ? res.data.comments : res.data
+    //     var fetch = (url, stage, datas) => {
+    //       console.log(url)
+    //       axios.get(url, { params: datas }).then((res) => {
+    //         console.log(res.data)
+    //         let result = stage == 0 ? res.data.comments : res.data
 
-            proj.posts = proj.posts.concat(result.data)
-            if (result.paging.next) {
-              fetch(result.paging.next, stage + 1, {})
-            }
-          })
-        }
-        fetch(url, 0, { para: para })
-      }
+    //         proj.posts = proj.posts.concat(result.data)
+    //         if (result.paging.next) {
+    //           fetch(result.paging.next, stage + 1, {})
+    //         }
+    //       })
+    //     }
+    //     fetch(url, 0, { para: para })
+    //   }
         
-    },
-    initWebsite(context) {
+    // },
+    // initWebsite(context) {
       // context.state.projs_info.forEach((proj)=>{
       //   let para = `${proj.hash}/comments?summary=true`
       //   let url = `http://awiclass.monoame.com/api/get_graphapi.php`
@@ -108,7 +111,7 @@ const store = new Vuex.Store({
       //     proj.summaryCount = res.data.summary.total_count
       //   })
       // })
-    }
+    // }
   }
 });
 
