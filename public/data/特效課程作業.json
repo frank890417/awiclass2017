@@ -37,7 +37,7 @@
       "title": "動畫互動網頁特效入門（JS/CANVAS）"
     },
     "assignment": "5ad241edd21aee001e56041b",
-    "description": "<p> <a href=\"https://m10503330.github.io/web_animation_3/\">https://m10503330.github.io/web_animation_3/</a><br /><br /></p>",
+    "description": "<p> <a href=\"https://m10503330.github.io/web_animation_3/\">https://m10503330.github.io/web_animation_3/</a><br /><br /></p>",
     "title": "網頁時鐘",
     "publishTime": "2020-03-02T15:34:53.598Z"
   },
@@ -186,7 +186,7 @@
       "title": "動畫互動網頁特效入門（JS/CANVAS）"
     },
     "assignment": "5a2ac213a6501f001e2ea24c",
-    "description": "<p> <a href=\"https://m10503330.github.io/web_app_1/\">https://m10503330.github.io/web_app_1/</a><br /><br /></p>",
+    "description": "<p> <a href=\"https://m10503330.github.io/web_app_1/\">https://m10503330.github.io/web_app_1/</a><br /><br /></p>",
     "title": "ASCII轉換器",
     "publishTime": "2020-02-18T13:23:09.225Z"
   },
@@ -205,7 +205,7 @@
       "title": "動畫互動網頁特效入門（JS/CANVAS）"
     },
     "assignment": "5a2ac216a6501f001e2ea24e",
-    "description": "<p> <a href=\"https://m10503330.github.io/web_animation_2/\">https://m10503330.github.io/web_animation_2/</a><br /><br /></p>",
+    "description": "<p> <a href=\"https://m10503330.github.io/web_animation_2/\">https://m10503330.github.io/web_animation_2/</a><br /><br /></p>",
     "title": "四季風景",
     "publishTime": "2020-02-13T06:17:56.283Z"
   },
@@ -4509,7 +4509,7 @@
       "_id": "5b5745e45738e6001e2b8830",
       "url": "https://hahow.in/images/5b5745e45738e6001e2b8830"
     },
-    "description": "<p>使用HackMD一段時間了，剛重新看了一下<a href=\"https://hackmd.io/TKNuhom7S62OV6bDyBglXA?both\" target=\"_blank\">HackMD最新版的功能簡介</a></p><p>才知道增加了那麼多新功能</p><p>想要指定開始行號，在表明程式語言之後輸入 <i><b>=101</b></i>，行號從101開始</p><p>要接續上一個程式碼區塊的行號，使用<b> </b><i><b>=+</b></i></p><p>引用區塊標籤還可以巢狀使用</p><p>還有各種UML 圖表</p><p>循序圖 語法 <a href=\"http://bramp.github.io/js-sequence-diagrams/\" target=\"_blank\">在這裡</a>.<br />流程圖 語法 <a href=\"http://adrai.github.io/flowchart.js/\" target=\"_blank\">在這裡</a>.<br />graphviz 語法 <a href=\"http://www.tonyballantyne.com/graphs.html\" target=\"_blank\">在這裡</a><br />mermaid 語法 <a href=\"http://knsv.github.io/mermaid\" target=\"_blank\">在這裡</a><br />abc 語法 <a href=\"http://abcnotation.com/learn\" target=\"_blank\">在這裡</a></p>",
+    "description": "<p>使用HackMD一段時間了，剛重新看了一下<a href=\"https://hackmd.io/TKNuhom7S62OV6bDyBglXA?both\" target=\"_blank\">HackMD最新版的功能簡介</a></p><p>才知道增加了那麼多新功能</p><p>想要指定開始行號，在表明程式語言之後輸入 <i><b>=101</b></i>，行號從101開始</p><p>要接續上一個程式碼區塊的行號，使用<b> </b><i><b>=+</b></i></p><p>引用區塊標籤還可以巢狀使用</p><p>還有各種UML 圖表</p><p>循序圖 語法 <a href=\"http://bramp.github.io/js-sequence-diagrams/\" target=\"_blank\">在這裡</a>.<br />流程圖 語法 <a href=\"http://adrai.github.io/flowchart.js/\" target=\"_blank\">在這裡</a>.<br />graphviz 語法 <a href=\"http://www.tonyballantyne.com/graphs.html\" target=\"_blank\">在這裡</a><br />mermaid 語法 <a href=\"http://knsv.github.io/mermaid\" target=\"_blank\">在這裡</a><br />abc 語法 <a href=\"http://abcnotation.com/learn\" target=\"_blank\">在這裡</a></p>",
     "title": "HackMD筆記",
     "publishTime": "2018-07-24T15:29:55.220Z"
   },
@@ -4687,7 +4687,7 @@
       "_id": "5a2963a91f4fd9001e12ff44",
       "url": "https://hahow.in/images/5a2963a91f4fd9001e12ff44"
     },
-    "description": "<p>Vue 課後練習 \b- 資料驅動的名片<br /><a href=\"https://codepen.io/hsimao/pen/Keyjag\" target=\"_blank\">https://codepen.io/hsimao/pen/Keyjag</a></p><p>Canvas與特效動畫- 物件導向結構 粒子篇 - 金幣動畫應用(canvas image)<br /><a href=\"https://codepen.io/hsimao/full/OZmqZN\">https://codepen.io/hsimao/full/OZmqZN</a></p><p>時間函數應用 - Loading Page ,禮物盒<br /><a href=\"https://codepen.io/hsimao/full/BmMxKp/\">https://codepen.io/hsimao/full/BmMxKp/</a></p><p>JavaScript程式基礎 - Jquery 事件觸發 - 輪盤遊戲<br /><a href=\"https://codepen.io/hsimao/full/yPWmeO/\">https://codepen.io/hsimao/full/yPWmeO/</a></p>",
+    "description": "<p>Vue 課後練習 \b- 資料驅動的名片<br /><a href=\"https://codepen.io/hsimao/pen/Keyjag\" target=\"_blank\">https://codepen.io/hsimao/pen/Keyjag</a></p><p>Canvas與特效動畫- 物件導向結構 粒子篇 - 金幣動畫應用(canvas image)<br /><a href=\"https://codepen.io/hsimao/full/OZmqZN\">https://codepen.io/hsimao/full/OZmqZN</a></p><p>時間函數應用 - Loading Page ,禮物盒<br /><a href=\"https://codepen.io/hsimao/full/BmMxKp/\">https://codepen.io/hsimao/full/BmMxKp/</a></p><p>JavaScript程式基礎 - Jquery 事件觸發 - 輪盤遊戲<br /><a href=\"https://codepen.io/hsimao/full/yPWmeO/\">https://codepen.io/hsimao/full/yPWmeO/</a></p>",
     "title": "練習作品",
     "publishTime": "2018-06-18T15:13:29.485Z"
   },
@@ -4933,7 +4933,7 @@
       "_id": "5a41cdfae939a9001ed22ab2",
       "url": "https://hahow.in/images/5a41cdfae939a9001ed22ab2"
     },
-    "description": "<p><img src=\"https://hahow.in/images/5a41cd95e939a9001ed22ab1\" /></p><p><a href=\"https://codepen.io/ohohhu/pen/Mrbpxe?editors=1100\">Codpen</a> </p><p><br /></p>",
+    "description": "<p><img src=\"https://hahow.in/images/5a41cd95e939a9001ed22ab1\" /></p><p><a href=\"https://codepen.io/ohohhu/pen/Mrbpxe?editors=1100\">Codpen</a> </p><p><br /></p>",
     "title": "履歷",
     "publishTime": "2017-12-26T04:20:16.106Z"
   },
