@@ -22,9 +22,9 @@ div.panel_proj
           button.btn.btn-default(@click="d_size='large'", :class="{'btn-primary':d_size=='large' }")
             | 大呈現
         .col-sm-3.btn-group.pull-right
-          button.btn.btn-default(@click="rank=1", :class="{'btn-primary':rank==0 }")
+          button.btn.btn-default(@click="rank=1", :class="{'btn-primary':rank==1 }")
             | 新 &gt; 舊
-          button.btn.btn-default(@click="rank=0", :class="{'btn-primary':rank==1 }")
+          button.btn.btn-default(@click="rank=0", :class="{'btn-primary':rank==0 }")
             | 舊 &gt; 新
       br
   .row(v-for="cut_post_group in cut_post")
@@ -59,7 +59,7 @@ export default {
     return {
       title: "",
       filter: "",
-      display_num: 15,
+      display_num: 20,
       d_size: "small",
       // posts: [],
       rank: 1
@@ -83,7 +83,7 @@ export default {
       let result =
           use_posts.slice(0,this.display_num)
           .filter(post=>(this.filter=="" || post.message.indexOf(this.filter)!=-1 || post.from.name.indexOf(this.filter)!=-1) )
-          .filter(post=>post.message.indexOf('http')>=0)
+          .filter(post=>post.message.indexOf('codepen')>=0 )
       if (this.d_size=="small"){
         return _.chunk(result,3)
       }else{
@@ -146,7 +146,7 @@ export default {
         console.log(nowy,target);
         
         if (nowy>target){
-          vobj.display_num+=_this.d_size=="small"?12:8;
+          vobj.display_num+=_this.d_size=="small"?9:6;
         }
       }
     });

@@ -70,8 +70,35 @@ var hahowAssignments = [
       "value": "5a7331697e07f1001e465da3",
       "label": "第 11 章，作業 1 題目：<Project 7> 互動錄音播放鋼琴",
       "hash": "1745104002174882"
+    },
+    {
+      "value": "5a2ac03fa6501f001e2ea245",
+      "label": "Project.1 使用html/css撰寫一份自己的網頁履歷",
+      "hash": "775644402607943",
+    },
+    {
+      "value": "5a2ac216a6501f001e2ea24e",
+      "label": "Project.2 在網頁寫一座美麗城市",
+      "hash": "777826799056370",
+    },
+    {
+      "value": "5a2ac213a6501f001e2ea24c",
+      "label": "Project.3 做一個摩斯密碼翻譯器",
+      "hash": "813963862109330",
+    },
+    {
+      "value": "5a8dc4b447536b001e634c1a",
+      "label": "Project.4 Memory Blocks 記憶方塊",
+      "hash": "class2hw4",
+    },
+    {
+      "value": "5aab7aab1e4ee6001e960c79",
+      "label": "Project.5 製作橫衝直撞的貪吃蛇",
+      "hash": "class2hw5",
     }
   ]
+
+
 
 
 const app = new Vue({
@@ -85,6 +112,24 @@ const app = new Vue({
 
         axios.get("/data/同學作品集.json").then(res=>{
             let portfolioData = res.data
+
+
+            portfolioData = portfolioData.concat([
+              {
+                name: "Project.4 Memory Blocks 記憶方塊",
+                hash: 'class2hw4',
+                class_id: "2",
+                posts: []
+              },
+              {
+                name: "Project.5 製作橫衝直撞的貪吃蛇",
+                hash: 'class2hw5',
+                class_id: "2",
+                posts: []
+              }
+            ])
+
+
             portfolioData.forEach( (portfolio)=> {
                 portfolio.posts = portfolio.posts.map(p=>({
                     ...p,
@@ -100,21 +145,13 @@ const app = new Vue({
             // console.log(portfolioData)
             store.commit("setProjsInfo",portfolioData)
 
-            
-            // https://api.hahow.in/api/courses/56189df9df7b3d0b005c6639/creations
-            axios.get("/data/hahow作業.json").then(res2=>{
-                // console.log(res2.data)
-                // console.log(res2.data.filter())
-
-                // console.log(hahowAssignments)
-
+            function loadHahowJSON(file){
+              // https://api.hahow.in/api/courses/56189df9df7b3d0b005c6639/creations
+              axios.get(file).then(res2=>{
                 res2.data.forEach(work=>{
-                    // console.log(work.assignment)
                     let portfolioMap = hahowAssignments.find(item=>item.value==work.assignment)
                     let targetPortfolio = portfolioData.find(p=>p.hash==( (portfolioMap || {}) .hash ))
-                    // console.log(portfolioMap,targetPortfolio)
-                    if (targetPortfolio){
-
+                    if (targetPortfolio && work.description.indexOf("codepen")!=-1){
                         let post = [work].map(w=>({
                             from: {
                                 name: w.owner.name,
@@ -122,35 +159,25 @@ const app = new Vue({
                                 type: "hahow"
                             },
                             created_time: (new Date(w.publishTime)).toLocaleDateString(),
-                            message: w.title+"\n"+w.description.replace(/<[^>]*>/g, ''),
+                            message: w.title+"\n"+w.description,
                         }))[0]
                         // console.log(post)
     
                         targetPortfolio.posts.push(post)
                     }
                 })
-
                 portfolioData.forEach(portfolio=>{
                     portfolio.posts.sort((p1,p2)=>{
                         return p1.created_time>p2.created_time? 1:-1
                     })
                 })
-                // let portfolioData = res.data
-                // portfolioData.forEach( (portfolio)=> {
-                //     portfolio.posts = portfolio.posts.map(p=>({
-                //         ...p,
-                //         from: {
-                //             name: p.name,
-                //             id: p.fbid
-                //         },
-                //         created_time: (new Date( parseInt(p.ts*1000))).toLocaleDateString(),
-                //         message: p.commentText + " " + p.codepenUrl,
-                //     }))
-                    
-                // })
-                // console.log(portfolioData)
                 store.commit("setProjsInfo",portfolioData)
             })
+            }
+            
+            loadHahowJSON("/data/hahow作業.json")
+            loadHahowJSON("/data/特效課程作業.json")
+
         })
         
         // store.dispatch("initWebsite")

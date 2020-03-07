@@ -42,6 +42,7 @@ props: ["post","filter","count_id","d_size"],
                    .replace(url_regex,"")
                    .replace(/^<br>/g,"")
                    .replace(/^<br>/g,"")
+                   .replace(/<[^>]*>/g, '')
       return {body: result.slice(0,50), extra: result.slice(50)}
     },
     ap(){
@@ -60,8 +61,8 @@ props: ["post","filter","count_id","d_size"],
       const regex2= /io\/.*?([a-zA-Z0-9\_]*)/g;
       var str = this.post.message; 
       if (str.indexOf('http')!=-1){
-        var res = str.match(regex)[0].substr(3);
-        var res2=str.match(regex2)[0].substr(3);
+        var res = (str.match(regex) || [""])[0].substr(3);
+        var res2 = (str.match(regex2) || [""])[0].substr(3);
         var template="http://codepen.io/USERNAME/pen/PENNAME/image/SIZE.png";
         return template
           .replace("USERNAME",res2).replace("PENNAME",res).replace("SIZE",this.d_size);
@@ -74,8 +75,8 @@ props: ["post","filter","count_id","d_size"],
       const regex2= /io\/.*?([a-zA-Z0-9\_]*)/g;
       var str = this.post.message; 
       if (str.indexOf('http')!=-1){
-        var res = str.match(regex)[0].substr(3);
-        var res2=str.match(regex2)[0].substr(3);
+        var res = (str.match(regex) || [""])[0].substr(3);
+        var res2 = (str.match(regex2) || [""])[0].substr(3);
         var template="http://codepen.io/USERNAME/pen/PENNAME";
         return template.replace("USERNAME",res2).replace("PENNAME",res);
       }else{
