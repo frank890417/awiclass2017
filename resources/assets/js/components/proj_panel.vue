@@ -59,7 +59,7 @@ export default {
     return {
       title: "",
       filter: "",
-      display_num: 20,
+      display_num: 6,
       d_size: "small",
       // posts: [],
       rank: 1
@@ -146,7 +146,7 @@ export default {
         console.log(nowy,target);
         
         if (nowy>target){
-          vobj.display_num+=_this.d_size=="small"?9:6;
+          vobj.display_num+=_this.d_size=="small"?6:4;
         }
       }
     });
