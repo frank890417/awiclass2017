@@ -59,7 +59,7 @@ export default {
     return {
       title: "",
       filter: "",
-      display_num: 6,
+      display_num: 9,
       d_size: "small",
       // posts: [],
       rank: 1

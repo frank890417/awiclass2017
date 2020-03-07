@@ -64,12 +64,12 @@ var hahowAssignments = [
     {
       "value": "5a7331827e07f1001e465da6",
       "label": "第 10 章，作業 1 題目：<Project 6> 實際網站應用案例-Yellow Studio 設計工作室網頁",
-      "hash": "1745106708841278"
+      "hash": "790055881166795"
     },
     {
       "value": "5a7331697e07f1001e465da3",
       "label": "第 11 章，作業 1 題目：<Project 7> 互動錄音播放鋼琴",
-      "hash": "1745104002174882"
+      "hash": "790055361166847"
     },
     {
       "value": "5a2ac03fa6501f001e2ea245",
