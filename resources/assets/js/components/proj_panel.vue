@@ -6,7 +6,7 @@ div.panel_proj
       h1 {{ title }}
         .pull-right
           a.btn.btn-secondary(v-bind:href="'https://www.facebook.com/'+now_hash", target='_blank') 我要交作業(留言)
-      //hr
+      hr
       .row
         .col-sm-3
           h4
@@ -154,7 +154,10 @@ export default {
 }
 </script>
 
-<style>
-
+<style lang="sass">
+.btn.btn-secondary
+  background-color: #414c56
+  color: white
 </style>
+
 

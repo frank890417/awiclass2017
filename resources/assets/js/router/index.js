@@ -26,6 +26,7 @@ Vue.use(Meta)
 // projpanel.col-sm-9(:proj_fb_hash='634100173429034')
 import proj_panel from '../components/proj_panel.vue'
 import page_index from '../pages/page_index.vue'
+import page_class from '../pages/page_class.vue'
 const routes = [
   { path: '/', redirect: '/proj/1' },
   { 
@@ -40,6 +41,9 @@ const routes = [
         props: true
       }
     ]
+  },{ 
+    path: '/class', 
+    component: page_class ,
   } 
   // { path: '/expo', component: require( '../pages/page_expo.vue') },
   // { path: '/ticket', component: require( '../pages/page_ticket.vue') },

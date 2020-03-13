@@ -9,21 +9,23 @@ nav.navbar.navbar-default.navbar-fixed-top
         span.icon-bar
         span.icon-bar
       // Branding Image
-      .navbar-brand() 動態互動網頁程式入門
+      router-link.navbar-brand(to="/class") Hahow 動畫互動網頁程式 / 特效入門
     #app-navbar-collapse.collapse.navbar-collapse
       // Left Side Of Navbar
       // Right Side Of Navbar
       ul.nav.navbar-nav.navbar-right
         li
-          router-link(to='/proj/1') 作品-程式入門
+          router-link(to='/proj/1') 程式入門作品
         li
-          router-link(to='/proj/2') 作品-特效入門
+          router-link(to='/proj/2') 特效入門作品
         li
-          a(href="https://hahow.in/cr/monoame-webdesign1",
-           @click="$ga.event('link', 'click', '前往課程-程式')" ,target="_blank") 程式課程
-        li
-          a(href="https://hahow.in/cr/monoame-webdesign2",
-           @click="$ga.event('link', 'click', '前往課程-特效')" ,target="_blank") 特效課程
+          router-link(to='/class') 課程介紹
+        //- li
+        //-   a(href="https://hahow.in/cr/monoame-webdesign1",
+        //-    @click="$ga.event('link', 'click', '前往課程-程式')" ,target="_blank") 程式課程
+        //- li
+        //-   a(href="https://hahow.in/cr/monoame-webdesign2",
+        //-    @click="$ga.event('link', 'click', '前往課程-特效')" ,target="_blank") 特效課程
         li
           a(href="https://www.facebook.com/groups/600360513469667/",
            @click="$ga.event('link', 'click', '前往fb社團')", target="_blank")  FB社團
