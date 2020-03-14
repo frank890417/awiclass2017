@@ -13,7 +13,7 @@ div.panel_proj
             span(v-show='posts.length') {{filter==''?('共有'+posts.length+'項作品'):('共有'+filtered_post.length+'項作品搜尋結果')}}
             span(v-show='!posts.length') 載入資料中...
         .col-sm-3
-          input.form-control(list="filter_input",placeholder='輸入過濾名字/內文', v-model='filter')
+          input.form-control(placeholder='輸入過濾名字/內文', v-model='filter')
           datalist#filter_input
             option(v-for= "op in allnames", :value="op")
         .col-sm-3.btn-group.pull-right.hidden-xs

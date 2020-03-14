@@ -116,25 +116,28 @@ h6
 
 nav
   li
-    a:after
-      content: ""
-      display: block
-      width: 0%
-      transform: translateX(-50%)
-      left: 50%
-      height: 3px
-      bottom: 6px
-      background-color: #3097D1
-      position: absolute
-      transition: 0.4s
+    // a:after
+    //   content: ""
+    //   display: block
+    //   width: 0%
+    //   transform: translateX(-50%)
+    //   left: 50%
+    //   height: 3px
+    //   bottom: 6px
+    //   background-color: #3097D1
+    //   position: absolute
+    //   transition: 0.4s
+    a
+      color: rgba(white,0.5)
     &.disable_current
       a:after
         display: none
 
   .router-link-active
+    background-color: rgba(white,0.15)
     position: relative
-    &:after
-      width: 80%
+    // &:after
+    //   width: 80%
   +range_width(0px,768px)
     .router-link-exact-active:after
       display: none
@@ -261,3 +264,8 @@ h3 label
     &:hover, &:active, &.router-link-active
       color: rgba(white,0.9)
 
+.btn-primary
+  background-color: #414c56
+  border-color: #414c56
+  &:hover,&:active, &:visited
+    background-color: #414c56
