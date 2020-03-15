@@ -40,9 +40,17 @@ props: ["post","filter","count_id","d_size"],
       let result = this.post.message.replace("/details/","/pen/")
                    .replace(/(?:\r\n|\r|\n)/g, "<br>")
                    .replace(url_regex,"")
-                   .replace(/^<br>/g,"")
-                   .replace(/^<br>/g,"")
+                  //  .replace(/^<br>/g,"")
+                  //  .replace(/^<br>/g,"")
+
+                  //  .replace(/<a[^>]*>/g, '')
+                  //  .replace(/<p[^>]*>/g, '')
+                   .replace(/<\/p>\n?<p>/g, '<br>')
+                   .replace(/<p><\/p>/g, '')
+                   .replace(/<br>\n?<br>/g,"<br>")
+                   .replace(/<br>/g,"***")
                    .replace(/<[^>]*>/g, '')
+                   .replace(/\*\*\*/g,"<br>")
       return {body: result.slice(0,50), extra: result.slice(50)}
     },
     ap(){
