@@ -39,7 +39,7 @@ var hahowAssignments = [
     {
       "value": "56189df9df7b3d0b005c663a",
       "label": "第 4 章，作業 2 題目：<Homework 1> 功課說明 - 製作自己的技能網頁",
-      "hash": "602543423251376"
+      "hash": "class1hw1"
     },
     {
       "value": "5a73308c7e07f1001e465d97",
@@ -116,6 +116,12 @@ const app = new Vue({
 
             portfolioData = portfolioData.concat([
               {
+                name: "HW1 製作自己的技能網頁",
+                hash: 'class1hw1',
+                class_id: "1",
+                posts: []
+              },
+              {
                 name: "Project.4 Memory Blocks 記憶方塊",
                 hash: 'class2hw4',
                 class_id: "2",
@@ -151,6 +157,7 @@ const app = new Vue({
                 res2.data.forEach(work=>{
                     let portfolioMap = hahowAssignments.find(item=>item.value==work.assignment)
                     let targetPortfolio = portfolioData.find(p=>p.hash==( (portfolioMap || {}) .hash ))
+                    console.log(portfolioMap,portfolioMap.label)
                     if (targetPortfolio && work.description.indexOf("codepen")!=-1){
                         let post = [work].map(w=>({
                             from: {
@@ -171,6 +178,7 @@ const app = new Vue({
                         return p1.created_time>p2.created_time? 1:-1
                     })
                 })
+                console.log(portfolioData)
                 store.commit("setProjsInfo",portfolioData)
             })
             }
