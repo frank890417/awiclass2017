@@ -60,10 +60,17 @@ export default {
       title: "",
       filter: "",
       display_num: 9,
-      d_size: "small",
+      d_size: localStorage.getItem("awiclass_hw_size") || "small",
       // posts: [],
       rank: 1
      
+    }
+  },
+  watch: {
+    d_size(){
+      if (localStorage.getItem("awiclass_hw_size") != this.d_size){
+        localStorage.setItem("awiclass_hw_size",this.d_size)
+      }
     }
   },
   computed:{
