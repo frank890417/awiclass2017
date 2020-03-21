@@ -2,9 +2,11 @@
 
 ul.list-group.nav_proj
   h4 章節 Projects
+  li.list-group-item(:class="{active: $route.path=='/proj/'+class_id }")
+    router-link(:to="'/proj/'+class_id") 作品精選
   li.list-group-item(
     v-for="(proj,pid) in projs_info.filter(o=>o.class_id==class_id)",
-    :class="{active: ($route.params.proj_fb_hash==proj.hash) || (!$route.params.proj_fb_hash && pid==0) }")
+    :class="{active: ($route.params.proj_fb_hash==proj.hash)  }")
     router-link(
       :to="'/proj/'+class_id+'/'+proj.hash") {{proj.name}} {{proj.loaded?("("+proj.posts.length+")"):""}}
   //- li(@click='sw(\"club\")', :class='[page==\"club\"?\"active\":\"\"]') FB討論社團

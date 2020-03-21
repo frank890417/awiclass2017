@@ -107,8 +107,23 @@ var hahowAssignments = [
     },
   ]
 
-
-
+  Vue.mixin({
+    methods: {
+      getCodepenInfo(str){
+        const regex = /pen\/([a-zA-Z0-9\_]{6}[a-zA-Z0-9\_]?)/g;
+        const regex2= /io\/.*?([a-zA-Z0-9\_]*)/g;
+        var str = str.replace("/details/","/pen/"); 
+        var str = str.replace("/full/","/pen/"); 
+        if (str.match(regex)){
+          var res = str.match(regex)[0].substr(3);
+          var res2 = str.match(regex2)[0].substr(3);
+          return {user: res2, pen: res};
+        }
+        return {}
+      }
+      
+    }
+  })
 
 const app = new Vue({
     el: '#app',
@@ -181,6 +196,7 @@ const app = new Vue({
                     // console.log(portfolioMap,portfolioMap.label)
                     if (targetPortfolio && work.description.indexOf("codepen")!=-1){
                         let post = [work].map(w=>({
+                            likeCount: w.likeCount,
                             from: {
                                 name: w.owner.name,
                                 id: w.owner._id,

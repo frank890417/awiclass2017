@@ -17,6 +17,9 @@ Route::get('/', function () {
 Route::get('/proj', function () {
     return view('layouts/app_spa');
 });
+Route::get('/proj/{classid}/showcase', function () {
+    return view('layouts/app_spa');
+});
 Route::get('/class', function () {
     return view('layouts/app_spa');
 });
