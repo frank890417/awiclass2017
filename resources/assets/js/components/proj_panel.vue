@@ -59,7 +59,7 @@ export default {
     return {
       title: "",
       filter: "",
-      display_num: 9,
+      display_num: 6,
       d_size: localStorage.getItem("awiclass_hw_size") || "small",
       // posts: [],
       rank: 1
@@ -76,7 +76,22 @@ export default {
   computed:{
     ...mapState(['projs_info']),
     posts(){
-      return this.nowProjObj.posts? this.nowProjObj.posts:[]
+      let result =  this.nowProjObj.posts? this.nowProjObj.posts:[]
+      result = result.slice().sort((a,b)=>{
+          //- console.log(a.created_time,b.created_time)
+          let date1 = a.created_time.split("/").map(v=>1*v)
+          let date2 = b.created_time.split("/").map(v=>1*v)
+          let bigger = date1.map((d,i)=>date1[i]>date2[i])
+          let equal = date1.map((d,i)=>date1[i]==date2[i])
+          
+          if (bigger[0] || (equal[0] && bigger[1]) || (equal[0] && equal[1] && bigger[2])){
+            return 1
+          }
+          return -1
+          
+
+      })
+      return result
     },
     now_hash(){
       return this.proj_fb_hash?this.proj_fb_hash:this.projs_info.find(o=>o.class_id==this.$route.params.class_id).hash
@@ -162,6 +177,8 @@ export default {
 </script>
 
 <style lang="sass">
+.panel_proj
+  min-height: 100vh
 .btn.btn-secondary
   background-color: #414c56
   color: white
