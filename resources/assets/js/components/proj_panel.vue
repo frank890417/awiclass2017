@@ -2,8 +2,8 @@
 div.panel_proj
   .row
     .col-sm-12
-      //- pre {{ nowProjObj }}
-      h1 {{ title }}
+      //- pre {{nowProjObj}}
+      h1 {{ title }} 
         .pull-right
           a.btn.btn-secondary(v-bind:href="'https://www.facebook.com/'+now_hash", target='_blank') 我要交作業(留言)
       hr
@@ -76,9 +76,15 @@ export default {
   computed:{
     ...mapState(['projs_info']),
     posts(){
+      console.log(this.nowProjObj)
       let result =  this.nowProjObj.posts? this.nowProjObj.posts:[]
+      //- result = result.filter()
       result = result.slice().sort((a,b)=>{
-          //- console.log(a.created_time,b.created_time)
+          
+          if (this.now_hash==""){
+            return ((a.likeCount || 0) > (b.likeCount || 0))?1:-1
+          }
+
           let date1 = a.created_time.split("/").map(v=>1*v)
           let date2 = b.created_time.split("/").map(v=>1*v)
           let bigger = date1.map((d,i)=>date1[i]>date2[i])
@@ -87,14 +93,14 @@ export default {
           if (bigger[0] || (equal[0] && bigger[1]) || (equal[0] && equal[1] && bigger[2])){
             return 1
           }
-          return -1
           
+          return -1
 
       })
       return result
     },
     now_hash(){
-      return this.proj_fb_hash?this.proj_fb_hash:this.projs_info.find(o=>o.class_id==this.$route.params.class_id).hash
+      return this.proj_fb_hash || ""
     },
     cut_post(){
       let use_posts = 
@@ -130,6 +136,19 @@ export default {
       return result
     },
     nowProjObj(){
+      if (this.now_hash==""){
+        return {
+          name: "作品精選",
+          hash: '',
+          class_id: this.$route.params.class_id,
+          posts: _.flatten(
+                                this.projs_info
+                                .filter(obj=>obj.class_id==this.$route.params.class_id)
+                                .map(obj=>obj.posts) 
+                          )
+        }
+      }
+      console.log(this.projs_info)
       return this.projs_info.find(o=>o.hash==this.now_hash)
     }
   },

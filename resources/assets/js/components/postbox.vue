@@ -3,13 +3,19 @@
   a(:href='penurl', target='_blank', title='點擊前往作品codepen')
     img(:src='imgurl')
     .content_area
+      .pull-right(style="opacity: 0.3;", v-if=" post.likeCount ")
+        span {{ post.likeCount }} 
+        span ♥
       h5(v-html="person")
-      p(v-html='para.body+para.extra')
+      p(v-html='show_more_comment?(para.body+para.extra):para.body')
+      span( @click.stop.prevent="show_more_comment=!show_more_comment " ) ... {{ show_more_comment?"檢視更多":"隱藏更多" }}
         //- span(v-show="para.extra!=''") ...閱讀更多
+      //- pre {{codepenInfo}}
       h6
         a.time(:href='comment_url', target='_blank') {{time}}
         .pull-right.time(v-if="post.from.type=='hahow'") (Hahow)
         .pull-right.time(v-else)  (FB)
+    //- pre {{post}}
 
 </template>
 
@@ -19,7 +25,8 @@ props: ["post","filter","count_id","d_size"],
   data(){ 
     return {
       expand: false,
-      para_show: false
+      para_show: false,
+      show_more_comment: false
     };
   },
   computed: {
@@ -35,68 +42,27 @@ props: ["post","filter","count_id","d_size"],
     time(){
       return this.post.created_time.replace("T"," ").replace("+0000","")
     },
+    codepenInfo(){
+      return this.getCodepenInfo(this.post.message || "");
+    },
     para(){
       let url_regex = /https?:\/\/(www\.)?[-a-zA-Z0-9@:%._\+~#=]{2,256}\.[a-z]{2,6}\b([-a-zA-Z0-9@:%_\+.~#?&//=]*)/g
       let result = this.post.message.replace("/details/","/pen/")
-                   .replace(/(?:\r\n|\r|\n)/g, "<br>")
-                   .replace(url_regex,"")
-                  //  .replace(/^<br>/g,"")
-                  //  .replace(/^<br>/g,"")
-
-                  //  .replace(/<a[^>]*>/g, '')
-                  //  .replace(/<p[^>]*>/g, '')
-                   .replace(/<\/p>\n?<p>/g, '<br>')
-                   .replace(/<p><\/p>/g, '')
-                   .replace(/<br>\n?<br>/g,"<br>")
-                   .replace(/<br>/g,"***")
-                   .replace(/<[^>]*>/g, '')
-                   .replace(/\*\*\*/g,"<br>")
-      return {body: result.slice(0,50), extra: result.slice(50)}
-    },
-    ap(){
-        const regex = /[^i\/][^o\/]\/([a-zA-Z0-9\_]{6}[a-zA-Z0-9\_]?)/g;
-        const regex2= /io\/.*?([a-zA-Z0-9\_]*)/g;
-        var str = this.post.message.replace("/details/","/pen/"); 
-        if (str.match(regex)){
-          var res = str.match(regex)[0].substr(3);
-          var res2=str.match(regex2)[0].substr(3);
-          return [res,res2];
-        }
-        return null;
+                  .replace(/(?:\r\n|\r|\n)/g, "<br>")
+                  .replace(url_regex,"")
+                  .replace(/<\/p>\n?<p>/g, '<br>')
+                  .replace(/<p><\/p>/g, '')
+                  .replace(/<br>\n?<br>/g,"<br>")
+                  .replace(/<br>/g,"***")
+                  .replace(/<[^>]*>/g, '')
+                  .replace(/\*\*\*/g,"<br>")
+      return {body: result.slice(0,100), extra: result.slice(100)}
     },
     imgurl(){
-      const regex = /[^i\/][^o\/]\/([a-zA-Z0-9\_]{6}[a-zA-Z0-9\_]?)/g;
-      const regex2= /io\/.*?([a-zA-Z0-9\_]*)/g;
-      var str = this.post.message.replace("/details/","/pen/"); 
-      if (str.indexOf('http')!=-1){
-        var res = (str.match(regex) || [""])[0].substr(3);
-        var res2 = (str.match(regex2) || [""])[0].substr(3);
-        var template="http://codepen.io/USERNAME/pen/PENNAME/image/SIZE.png";
-        return template
-          .replace("USERNAME",res2).replace("PENNAME",res).replace("SIZE",this.d_size);
-      }else{
-        return "";
-      }
+      return `http://codepen.io/${this.codepenInfo.user}/pen/${this.codepenInfo.pen}/image/${this.d_size}.png`;
     },
     penurl(){
-      const regex = /[^i\/][^o\/]\/([a-zA-Z0-9\_]{6}[a-zA-Z0-9\_]?)/g;
-      const regex2= /io\/.*?([a-zA-Z0-9\_]*)/g;
-      var str = this.post.message.replace("/details/","/pen/"); 
-      if (str.indexOf('http')!=-1){
-        var res = (str.match(regex) || [""])[0].substr(3);
-        var res2 = (str.match(regex2) || [""])[0].substr(3);
-        var template="http://codepen.io/USERNAME/pen/PENNAME";
-        return template.replace("USERNAME",res2).replace("PENNAME",res);
-      }else{
-        return "";
-      }
-    },
-    filter_show(){
-      if (!this.post.message){
-        return false;
-      }
-      var result=(this.post.message.indexOf(this.filter)!=-1 || this.post.from.name.indexOf(this.filter)!=-1);
-      return result;
+      return `http://codepen.io/${this.codepenInfo.user}/pen/${this.codepenInfo.pen}`;
     }
   }
 }

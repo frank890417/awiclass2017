@@ -8,6 +8,7 @@ urllib.request.urlretrieve('https://api.hahow.in/api/courses/586fae97a8aae907000
 
 os.system("git add 特效課程作業.json")
 os.system("git add 程式課程作業.json")
+os.system("git add 同學作品集.json")
 os.system("git commit -m '" + now.strftime("%m/%d/%Y") +" Update Hahow Data'")
 os.system("git push")
 
