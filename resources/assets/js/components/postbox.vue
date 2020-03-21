@@ -8,7 +8,8 @@
         span ♥
       h5(v-html="person")
       p(v-html='show_more_comment?(para.body+para.extra):para.body')
-      span( @click.stop.prevent="show_more_comment=!show_more_comment " ) ... {{ show_more_comment?"檢視更多":"隱藏更多" }}
+      span.showmore(v-if="para.extra",
+          @click.stop.prevent="show_more_comment=!show_more_comment " ) ... {{ !show_more_comment?"檢視更多":"隱藏更多" }}
         //- span(v-show="para.extra!=''") ...閱讀更多
       //- pre {{codepenInfo}}
       h6
