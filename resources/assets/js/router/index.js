@@ -27,6 +27,8 @@ Vue.use(Meta)
 import proj_panel from '../components/proj_panel.vue'
 import page_index from '../pages/page_index.vue'
 import page_class from '../pages/page_class.vue'
+import page_tutorial from '../pages/page_tutorial.vue'
+
 const routes = [
   { path: '/', redirect: '/proj/1' },
   { 
@@ -44,6 +46,9 @@ const routes = [
   },{ 
     path: '/class', 
     component: page_class ,
+  } ,{ 
+    path: '/tutorial', 
+    component: page_tutorial ,
   } 
   // { path: '/expo', component: require( '../pages/page_expo.vue') },
   // { path: '/ticket', component: require( '../pages/page_ticket.vue') },

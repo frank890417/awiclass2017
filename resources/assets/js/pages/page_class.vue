@@ -1,12 +1,12 @@
 <template lang="pug">
-.page-class
+.page-class.pt-5
   .container.pt-5
-    .row
+    //.row.mt-5
       .col-12
         h1 課程介紹
   
     .row
-      a.col-sm-4.class(href="https://hahow.in/cr/monoame-webdesign1",
+      a.col-sm-6.class(href="https://hahow.in/cr/monoame-webdesign1",
                        target="_blank",
                        @click="$ga.event('link', 'click', '前往課程-程式')")
         .inner.row
@@ -15,7 +15,7 @@
           .col-sm-12
             h2.mt-5.mb-3 動畫互動網頁程式入門(HTML/CSS/JS)
             p 想用 illustrator 的思維學習網頁前端程式設計嗎？看完一般網路教學總是離想像有一大段距離嗎？讓這堂課帶你走進前端動態網頁的世界。
-      a.col-sm-4.class(href="https://hahow.in/cr/monoame-webdesign2",target="_blank",
+      a.col-sm-6.class(href="https://hahow.in/cr/monoame-webdesign2",target="_blank",
                       @click="$ga.event('link', 'click', '前往課程-特效')")
         .inner.row
 
@@ -39,6 +39,7 @@
 
 <style lang="sass">
 .page-class
+  padding-top: 50px
   .class
     margin-top: 20px
     margin-bottom: 20px

@@ -20,6 +20,8 @@ nav.navbar.navbar-default.navbar-fixed-top
           router-link(to='/proj/2') 特效入門作品
         li
           router-link(to='/class') 課程介紹
+        li
+          router-link(to='/tutorial') 教學頻道
         //- li
         //-   a(href="https://hahow.in/cr/monoame-webdesign1",
         //-    @click="$ga.event('link', 'click', '前往課程-程式')" ,target="_blank") 程式課程

@@ -21,7 +21,7 @@
     @endif
 
 
-    
+    <link rel="stylesheet" href="/fontawesome-pro-5.11.2-web/css/all.min.css">    
 
     <!-- Styles -->
     <link href="/css/app.css" rel="stylesheet">

@@ -23,6 +23,9 @@ Route::get('/proj/{classid}/showcase', function () {
 Route::get('/class', function () {
     return view('layouts/app_spa');
 });
+Route::get('/tutorial', function () {
+    return view('layouts/app_spa');
+});
 Route::get('/proj/{classid}', function () {
     return view('layouts/app_spa');
 });
