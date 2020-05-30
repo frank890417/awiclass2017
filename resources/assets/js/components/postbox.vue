@@ -60,10 +60,10 @@ props: ["post","filter","count_id","d_size"],
       return {body: result.slice(0,100), extra: result.slice(100)}
     },
     imgurl(){
-      return `http://codepen.io/${this.codepenInfo.user}/pen/${this.codepenInfo.pen}/image/${this.d_size}.png`;
+      return `https://codepen.io/${this.codepenInfo.user}/pen/${this.codepenInfo.pen}/image/${this.d_size}.png`;
     },
     penurl(){
-      return `http://codepen.io/${this.codepenInfo.user}/pen/${this.codepenInfo.pen}`;
+      return `https://codepen.io/${this.codepenInfo.user}/pen/${this.codepenInfo.pen}`;
     }
   }
 }
