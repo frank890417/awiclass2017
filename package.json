@@ -14,7 +14,7 @@
     "bootstrap-sass": "^3.3.7",
     "cross-env": "^5.0.1",
     "gulp": "^3.9.1",
-    "jquery": "^3.1.1",
+    "jquery": "^3.5.0",
     "laravel-blade-jade": "^2.0.3",
     "laravel-elixir": "^6.0.0-16",
     "laravel-elixir-jade": "^0.2.4",
@@ -32,6 +32,6 @@
   },
   "dependencies": {
     "bootstrap-sass": "^3.3.7",
-    "jquery": "^3.2.1"
+    "jquery": "^3.5.0"
   }
 }
